@@ -43,7 +43,7 @@
                 android:layout_gravity="center">
 
                 <EditText
-                    android:id="@+id/email"
+                    android:id="@+id/email_id"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="35dp"
@@ -56,7 +56,7 @@
                     android:drawableLeft="@drawable/mail_icon"/>
 
                 <EditText
-                    android:id="@+id/password"
+                    android:id="@+id/pwd"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"

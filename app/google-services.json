@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "647353742559",
+    "firebase_url": "https://case-hearing.firebaseio.com",
+    "project_id": "case-hearing",
+    "storage_bucket": "case-hearing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647353742559:android:2a626afc5974216a",
+        "android_client_info": {
+          "package_name": "com.example.casehearing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647353742559-2d892jb9skci0l1rq3033gs342j2hmug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOHfcpDVS6ReV_IxiwvCyMdMxCBxAWmlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647353742559-2d892jb9skci0l1rq3033gs342j2hmug.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
