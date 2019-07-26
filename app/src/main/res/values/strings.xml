@@ -15,4 +15,6 @@
     <string name="menu_send">Send</string>
     <string name="title_activity_login">Login</string>
     <string name="title_activity_signup">Signup</string>
+    <string name="title_activity_profile">Profile</string>
+
 </resources>

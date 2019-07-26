@@ -6,14 +6,11 @@ import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.util.Patterns;
 import android.view.View;
@@ -83,18 +80,45 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful())
-                {
+                if(task.isSuccessful() && mAuth.getCurrentUser().isEmailVerified())
+                {   finish();
+                    Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
                     Intent i = new Intent(getApplicationContext(),MainActivity.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
-                }else {
+                }else if(task.isSuccessful() && !mAuth.getCurrentUser().isEmailVerified())
+                {
+
+                    Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
+                    finish();
+                    Intent i = new Intent(getApplicationContext(), Verification.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+                }else
+                {
                     progressDialog.cancel();
                     Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_LONG).show();
                 }
             }
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if(mAuth.getCurrentUser()!=null && mAuth.getCurrentUser().isEmailVerified())
+        {
+            finish();
+            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
+        }else if(mAuth.getCurrentUser()!=null && !mAuth.getCurrentUser().isEmailVerified())
+        {
+            finish();
+            Intent i = new Intent(getApplicationContext(), Verification.class);
+            startActivity(i);
+        }
     }
 
     @Override
@@ -106,7 +130,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         }
 
         if (view == signupText)
-        {
+        {   finish();
             Intent i = new Intent(getApplicationContext(),Signup.class);
             startActivity(i);
         }

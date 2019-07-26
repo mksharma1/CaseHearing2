@@ -6,15 +6,12 @@ import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.util.Patterns;
 import android.view.View;
@@ -51,8 +48,8 @@ public class Signup extends AppCompatActivity implements View.OnClickListener{
 
     private void registerUser(){
 
-        String username = name.getText().toString().trim();
-        String userid = mail.getText().toString().trim();
+        final String username = name.getText().toString().trim();
+        final String userid = mail.getText().toString().trim();
         String password = pass.getText().toString().trim();
 
         if(username.isEmpty())
@@ -93,9 +90,11 @@ public class Signup extends AppCompatActivity implements View.OnClickListener{
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
-                {
+                {   finish();
                     Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(getApplicationContext(),Login.class);
+                    Intent i = new Intent(getApplicationContext(), Verification.class);
+                    i.putExtra("name",username);
+                    i.putExtra("email",userid);
                     startActivity(i);
                 }else
                 {   progressDialog.cancel();
@@ -121,7 +120,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener{
         }
 
         if(view == loginText)
-        {
+        {   finish();
             Intent i = new Intent(getApplicationContext(),Login.class);
             startActivity(i);
         }

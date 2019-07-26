@@ -7,4 +7,5 @@
     <color name="transparent">#00000000</color>
     <color name="startcolor">#C471FE</color>
     <color name="endcolor">#7536F3</color>
+    <color name="red">#E00A3C</color>
 </resources>
