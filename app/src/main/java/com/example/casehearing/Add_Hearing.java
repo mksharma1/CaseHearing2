@@ -65,6 +65,31 @@ public void addHearing() {
     DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss a");
     String last_updated = dateFormat.format(date);
 
+    if(name.isEmpty())
+    {
+        advocate_name.setError("Advocate Name is required");
+        advocate_name.requestFocus();
+        return;
+    }
+    if(title.isEmpty())
+    {
+        case_title.setError("Case Title is required");
+        case_title.requestFocus();
+        return;
+    }
+    if(get_ndh.isEmpty())
+    {
+        ndh.setError("NDH is required");
+        ndh.requestFocus();
+        return;
+    }
+    if(case_purpose.isEmpty())
+    {
+        purpose.setError("Purpose is required");
+        purpose.requestFocus();
+        return;
+    }
+
     progressDialog.setMessage("Saving Info...");
     progressDialog.show();
 

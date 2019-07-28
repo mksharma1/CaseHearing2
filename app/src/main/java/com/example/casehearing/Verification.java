@@ -19,10 +19,8 @@ import android.widget.Toast;
 
 public class Verification extends AppCompatActivity implements View.OnClickListener {
 
-
-
-    TextView verify,mail_info,name;
-    Button proceed,refresh;
+    TextView verify,name;
+    Button proceed;
     FirebaseAuth mAuth;
     private ProgressDialog progressDialog;
 
@@ -32,26 +30,44 @@ public class Verification extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verification);
 
-        refresh = findViewById(R.id.refresh);
-        refresh.setOnClickListener(this);
         name = findViewById(R.id.name);
         verify = findViewById(R.id.verify);
         verify.setOnClickListener(this);
         proceed = findViewById(R.id.proceed);
         proceed.setOnClickListener(this);
-        mail_info = findViewById(R.id.mail_info);
-        Intent i = getIntent();
-        String username = i.getStringExtra("name");
+
         progressDialog = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
 
-        if(username!=null) {
-            name.setText(" " + username);
+        if(mAuth.getCurrentUser()==null)
+        {
+            finish();
+            Intent intent = new Intent(getApplicationContext(),Login.class);
+            startActivity(intent);
         }
+
+        checkVerification();
 
     }
 
+    private void checkVerification() {
 
+
+        if(mAuth.getCurrentUser().isEmailVerified())
+        {   proceed.setText("Proceed");
+            proceed.setEnabled(true);
+            String verify_info = "<u>Email Verified</u>";
+            verify.setText(Html.fromHtml(verify_info));
+
+        }
+        if(!mAuth.getCurrentUser().isEmailVerified())
+        {
+            String verify_info = "<u>Email Not Verified. (Click to Verify)</u>";
+            verify.setText(Html.fromHtml(verify_info));
+            proceed.setText("Proceed");
+            proceed.setEnabled(true);
+        }
+    }
 
 
     @Override
@@ -66,9 +82,11 @@ public class Verification extends AppCompatActivity implements View.OnClickListe
                     if(task.isSuccessful())
                     {  progressDialog.cancel();
                         Toast.makeText(getApplicationContext(),"Verification mail sent.",Toast.LENGTH_LONG).show();
+                        return;
                     }else
                     {   progressDialog.cancel();
                         Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                        return;
                     }
                 }
             });
@@ -79,47 +97,11 @@ public class Verification extends AppCompatActivity implements View.OnClickListe
                Intent i = new Intent(getApplicationContext(),MainActivity.class);
                startActivity(i);
         }
-        if(view == refresh)
-        {
-            Intent i = new Intent(getApplicationContext(), Verification.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            startActivity(i);
-        }
-
     }
-
 
     protected void onStart() {
         super.onStart();
-
-        if(mAuth.getCurrentUser()==null)
-        {
-            finish();
-            Intent i = new Intent(getApplicationContext(),Login.class);
-            startActivity(i);
-        }
-        if(mAuth.getCurrentUser().isEmailVerified())
-        {   proceed.setText("Proceed");
-            proceed.setEnabled(true);
-            String verify_info = "<u>Email Verified</u>";
-            verify.setText(Html.fromHtml(verify_info));
-            mail_info.setVisibility(View.GONE);
-
-        }else if(!mAuth.getCurrentUser().isEmailVerified())
-        {   Intent i = getIntent();
-            String id = i.getStringExtra("email");
-            String verify_info = "<u>Email Not Verified. (Click to Verify)</u>";
-            if(id!=null)
-            {
-                mail_info.setText("Note : Verification mail would be sent to your mail id - " + id);
-            }else {
-                mail_info.setText("Note : Verification mail would be sent to your mail id.");
-            }
-            proceed.setText("Verify Email to Proceed");
-            proceed.setEnabled(false);
-            verify.setText(Html.fromHtml(verify_info));
-        }
+        checkVerification();
     }
-
 
 }

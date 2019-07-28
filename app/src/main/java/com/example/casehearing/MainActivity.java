@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity
 
         add_hearing = findViewById(R.id.add_hearing);
         view_hearing = findViewById(R.id.view_hearing);
-        add_advocate = findViewById(R.id.view_hearing);
+        add_advocate = findViewById(R.id.add_advocate);
         about = findViewById(R.id.about);
         add_hearing.setOnClickListener(this);
         view_hearing.setOnClickListener(this);
@@ -121,6 +121,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_addAdvocate) {
+            Intent intent = new Intent(getApplicationContext(),Add_Advocate.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_share) {
 
@@ -166,6 +168,11 @@ public class MainActivity extends AppCompatActivity
         if(view==view_hearing)
         {
             Intent intent = new Intent(getApplicationContext(),View_Hearing.class);
+            startActivity(intent);
+        }
+        if(view == add_advocate)
+        {
+            Intent intent = new Intent(getApplicationContext(),Add_Advocate.class);
             startActivity(intent);
         }
     }
