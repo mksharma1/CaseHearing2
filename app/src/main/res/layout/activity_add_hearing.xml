@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Add_Hearing"
+    android:background="@drawable/gradient_color">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="Submit Details"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp">
+
+                <EditText
+                    android:id="@+id/advocate_name"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textview_shape"
+                    android:layout_marginTop="50dp"
+                    android:layout_gravity="center"
+                    android:hint="Name of Advocate"
+                    android:padding="6dp"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="textPersonName"
+                    />
+
+                <EditText
+                    android:id="@+id/case_title"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textview_shape"
+                    android:layout_marginTop="50dp"
+                    android:layout_gravity="center"
+                    android:hint="Case Title"
+                    android:padding="6dp"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="text"
+                    />
+
+                <EditText
+                    android:id="@+id/ndh"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textview_shape"
+                    android:layout_marginTop="50dp"
+                    android:layout_gravity="center"
+                    android:hint="NDH"
+                    android:padding="6dp"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="text"
+                    />
+
+                <EditText
+                    android:id="@+id/purpose"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textview_shape"
+                    android:layout_marginTop="50dp"
+                    android:layout_gravity="center"
+                    android:hint="Purpose"
+                    android:padding="6dp"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="text"
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_shape"
+                android:text="Submit"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:textColor="@color/startcolor"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

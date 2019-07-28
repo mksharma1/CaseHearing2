@@ -92,7 +92,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener{
                 if(task.isSuccessful())
                 {   finish();
                     Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(getApplicationContext(), Verification.class);
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     i.putExtra("name",username);
                     i.putExtra("email",userid);
                     startActivity(i);

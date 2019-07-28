@@ -1,5 +1,7 @@
 package com.example.casehearing;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -7,12 +9,14 @@ import com.google.android.material.snackbar.Snackbar;
 
 import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -20,9 +24,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+
+    Button add_hearing,view_hearing,add_advocate,about;
+    FirebaseAuth mAuth;
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +54,19 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        add_hearing = findViewById(R.id.add_hearing);
+        view_hearing = findViewById(R.id.view_hearing);
+        add_advocate = findViewById(R.id.view_hearing);
+        about = findViewById(R.id.about);
+        add_hearing.setOnClickListener(this);
+        view_hearing.setOnClickListener(this);
+        add_advocate.setOnClickListener(this);
+        about.setOnClickListener(this);
+
+        mAuth = FirebaseAuth.getInstance();
+        builder = new AlertDialog.Builder(this);
+
     }
 
     @Override
@@ -86,21 +108,65 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+            finish();
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_addHearing) {
+            Intent intent = new Intent(getApplicationContext(),Add_Hearing.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_tools) {
+        } else if (id == R.id.nav_viewHearing) {
+            Intent intent = new Intent(getApplicationContext(),View_Hearing.class);
+            startActivity(intent);
+
+        } else if (id == R.id.nav_addAdvocate) {
 
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
+
+        } else if (id == R.id.about){
+
+        } else if (id == R.id.nav_logout){
+            builder.setMessage("Do You Want to Logout?");
+            builder.setTitle("Alert");
+            builder.setCancelable(false);
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    mAuth.signOut();
+                    Intent intent = new Intent(getApplicationContext(),Login.class);
+                    startActivity(intent);
+                }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.cancel();
+                }
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
 
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view==add_hearing)
+        {
+            Intent intent = new Intent(getApplicationContext(),Add_Hearing.class);
+            startActivity(intent);
+        }
+        if(view==view_hearing)
+        {
+            Intent intent = new Intent(getApplicationContext(),View_Hearing.class);
+            startActivity(intent);
+        }
     }
 }
