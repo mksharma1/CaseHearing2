@@ -4,15 +4,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -20,6 +24,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -33,8 +39,11 @@ public class Add_Hearing extends AppCompatActivity implements View.OnClickListen
     RadioButton radioButton;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference Advocates = db.collection("Advocates");
     private CollectionReference CaseHearing = db.collection("CaseHearings");
     private DocumentReference hearing = db.document("CaseHearings/first_hearing");
+    private String advocates;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +51,7 @@ public class Add_Hearing extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_add_hearing);
 
         case_id = findViewById(R.id.case_id);
-        advocate_name = findViewById(R.id.advocate_name);
+        final Spinner advocate_name = (Spinner) findViewById(R.id.advocate_name);
         case_title = findViewById(R.id.case_title);
         ndh = findViewById(R.id.ndh);
         purpose = findViewById(R.id.purpose);
@@ -50,6 +59,47 @@ public class Add_Hearing extends AppCompatActivity implements View.OnClickListen
         submit.setOnClickListener(this);
         progressDialog = new ProgressDialog(this);
         radioGroup = findViewById(R.id.case_type);
+        advocate_name.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String name = advocate_name.getSelectedItem().toString();
+                advocates = name;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        loadAdvocates();
+    }
+
+    public void loadAdvocates() {
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+        Advocates.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                 progressDialog.cancel();
+                ArrayList<String> Advocates = new ArrayList<>();
+                for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                    DB_Advocates db_advocates = documentSnapshot.toObject(DB_Advocates.class);
+                    Advocates.add(db_advocates.getAdvocate());
+
+                }
+                Spinner spinner = (Spinner) findViewById(R.id.advocate_name);
+                ArrayAdapter aa = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, Advocates);
+                aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinner.setAdapter(aa);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                progressDialog.cancel();
+                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
@@ -65,12 +115,11 @@ public void addHearing() {
         radioButton = findViewById(s);
         try {
             String case_type = radioButton.getText().toString();
-
             String id = case_id.getText().toString();
-            String name = advocate_name.getText().toString();
             String title = case_title.getText().toString();
             final String get_ndh = ndh.getText().toString();
             String case_purpose = purpose.getText().toString();
+
 
             Calendar cal = Calendar.getInstance();
             Date date = cal.getTime();
@@ -89,7 +138,7 @@ public void addHearing() {
                 case_id.requestFocus();
                 return;
             }
-            if (name.isEmpty()) {
+            if (advocates.isEmpty()) {
                 advocate_name.setError("Advocate Name is required");
                 advocate_name.requestFocus();
                 return;
@@ -113,7 +162,7 @@ public void addHearing() {
             progressDialog.setMessage("Saving Info...");
             progressDialog.show();
 
-            DB_CaseHearing db_caseHearing = new DB_CaseHearing(case_type, id, name, title, get_ndh, case_purpose, last_updated);
+            DB_CaseHearing db_caseHearing = new DB_CaseHearing(case_type, id, advocates, title, get_ndh, case_purpose, last_updated);
 
             CaseHearing.add(db_caseHearing).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
