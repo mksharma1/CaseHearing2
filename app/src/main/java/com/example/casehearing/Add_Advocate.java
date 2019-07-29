@@ -46,11 +46,14 @@ public class Add_Advocate extends AppCompatActivity implements View.OnClickListe
     }
 
     public void loadAdvocates() {
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
         Advocates.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-
+                progressDialog.cancel();
                 ArrayList<String> Advocates = new ArrayList<>();
+                Advocates.add("Advocate Name");
                 for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots)
                 {
                     DB_Advocates db_advocates = documentSnapshot.toObject(DB_Advocates.class);
@@ -65,6 +68,7 @@ public class Add_Advocate extends AppCompatActivity implements View.OnClickListe
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
             }
         });

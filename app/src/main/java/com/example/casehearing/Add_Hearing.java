@@ -83,6 +83,7 @@ public class Add_Hearing extends AppCompatActivity implements View.OnClickListen
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                  progressDialog.cancel();
                 ArrayList<String> Advocates = new ArrayList<>();
+                Advocates.add("Advocate Name");
                 for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                     DB_Advocates db_advocates = documentSnapshot.toObject(DB_Advocates.class);
                     Advocates.add(db_advocates.getAdvocate());

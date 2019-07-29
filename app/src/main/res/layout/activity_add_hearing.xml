@@ -85,10 +85,11 @@
                 <Spinner
                     android:id="@+id/advocate_name"
                     android:layout_width="250dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:layout_marginTop="35dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/textview_shape"></Spinner>
+                    android:background="@drawable/textview_shape"
+                    ></Spinner>
 
 
                 <EditText
