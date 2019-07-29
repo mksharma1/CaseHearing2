@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -27,6 +29,8 @@ public class Add_Hearing extends AppCompatActivity implements View.OnClickListen
     EditText advocate_name,case_title,ndh,purpose;
     Button submit;
     ProgressDialog progressDialog;
+    RadioGroup radioGroup;
+    RadioButton radioButton;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference CaseHearing = db.collection("CaseHearings");
@@ -44,6 +48,7 @@ public class Add_Hearing extends AppCompatActivity implements View.OnClickListen
         submit = findViewById(R.id.submit);
         submit.setOnClickListener(this);
         progressDialog = new ProgressDialog(this);
+        radioGroup = findViewById(R.id.case_type);
     }
 
     @Override
@@ -55,6 +60,9 @@ public class Add_Hearing extends AppCompatActivity implements View.OnClickListen
     }
 
 public void addHearing() {
+        int s = radioGroup.getCheckedRadioButtonId();
+        radioButton = findViewById(s);
+        String case_type = radioButton.getText().toString();
     String name = advocate_name.getText().toString();
     String title = case_title.getText().toString();
     final String get_ndh = ndh.getText().toString();
@@ -93,7 +101,7 @@ public void addHearing() {
     progressDialog.setMessage("Saving Info...");
     progressDialog.show();
 
-    DB_CaseHearing db_caseHearing = new DB_CaseHearing(name, title, get_ndh, case_purpose, last_updated);
+    DB_CaseHearing db_caseHearing = new DB_CaseHearing(case_type,name, title, get_ndh, case_purpose, last_updated);
 
     CaseHearing.add(db_caseHearing).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
         @Override
