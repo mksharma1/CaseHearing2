@@ -26,7 +26,7 @@ import java.util.Date;
 
 public class Add_Hearing extends AppCompatActivity implements View.OnClickListener {
 
-    EditText advocate_name,case_title,ndh,purpose;
+    EditText case_id,advocate_name,case_title,ndh,purpose;
     Button submit;
     ProgressDialog progressDialog;
     RadioGroup radioGroup;
@@ -41,6 +41,7 @@ public class Add_Hearing extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_hearing);
 
+        case_id = findViewById(R.id.case_id);
         advocate_name = findViewById(R.id.advocate_name);
         case_title = findViewById(R.id.case_title);
         ndh = findViewById(R.id.ndh);
@@ -62,60 +63,73 @@ public class Add_Hearing extends AppCompatActivity implements View.OnClickListen
 public void addHearing() {
         int s = radioGroup.getCheckedRadioButtonId();
         radioButton = findViewById(s);
-        String case_type = radioButton.getText().toString();
-    String name = advocate_name.getText().toString();
-    String title = case_title.getText().toString();
-    final String get_ndh = ndh.getText().toString();
-    String case_purpose = purpose.getText().toString();
+        try {
+            String case_type = radioButton.getText().toString();
 
-    Calendar cal = Calendar.getInstance();
-    Date date=cal.getTime();
-    DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss a");
-    String last_updated = dateFormat.format(date);
+            String id = case_id.getText().toString();
+            String name = advocate_name.getText().toString();
+            String title = case_title.getText().toString();
+            final String get_ndh = ndh.getText().toString();
+            String case_purpose = purpose.getText().toString();
 
-    if(name.isEmpty())
+            Calendar cal = Calendar.getInstance();
+            Date date = cal.getTime();
+            DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss a");
+            String last_updated = dateFormat.format(date);
+
+    if(!(radioButton.isChecked()))
     {
-        advocate_name.setError("Advocate Name is required");
-        advocate_name.requestFocus();
-        return;
-    }
-    if(title.isEmpty())
-    {
-        case_title.setError("Case Title is required");
-        case_title.requestFocus();
-        return;
-    }
-    if(get_ndh.isEmpty())
-    {
-        ndh.setError("NDH is required");
-        ndh.requestFocus();
-        return;
-    }
-    if(case_purpose.isEmpty())
-    {
-        purpose.setError("Purpose is required");
-        purpose.requestFocus();
+        radioButton.setError("Case Title is required");
+        radioButton.requestFocus();
         return;
     }
 
-    progressDialog.setMessage("Saving Info...");
-    progressDialog.show();
+            if (id.isEmpty()) {
+                case_id.setError("Case ID is required");
+                case_id.requestFocus();
+                return;
+            }
+            if (name.isEmpty()) {
+                advocate_name.setError("Advocate Name is required");
+                advocate_name.requestFocus();
+                return;
+            }
+            if (title.isEmpty()) {
+                case_title.setError("Case Title is required");
+                case_title.requestFocus();
+                return;
+            }
+            if (get_ndh.isEmpty()) {
+                ndh.setError("NDH is required");
+                ndh.requestFocus();
+                return;
+            }
+            if (case_purpose.isEmpty()) {
+                purpose.setError("Purpose is required");
+                purpose.requestFocus();
+                return;
+            }
 
-    DB_CaseHearing db_caseHearing = new DB_CaseHearing(case_type,name, title, get_ndh, case_purpose, last_updated);
+            progressDialog.setMessage("Saving Info...");
+            progressDialog.show();
 
-    CaseHearing.add(db_caseHearing).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-        @Override
-        public void onSuccess(DocumentReference documentReference) {
-            progressDialog.cancel();
-            Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_LONG).show();
-        }
-    }).addOnFailureListener(new OnFailureListener() {
-        @Override
-        public void onFailure(@NonNull Exception e) {
-            progressDialog.cancel();
-            Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
-        }
-    });
+            DB_CaseHearing db_caseHearing = new DB_CaseHearing(case_type, id, name, title, get_ndh, case_purpose, last_updated);
+
+            CaseHearing.add(db_caseHearing).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                @Override
+                public void onSuccess(DocumentReference documentReference) {
+                    progressDialog.cancel();
+                    Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_LONG).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    progressDialog.cancel();
+                    Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
+                }
+            });
+
+        }catch (Exception e){}
 
 }
 

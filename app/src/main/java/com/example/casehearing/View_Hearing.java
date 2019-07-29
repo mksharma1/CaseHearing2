@@ -50,13 +50,14 @@ public class View_Hearing extends AppCompatActivity {
                 {
                     DB_CaseHearing db_caseHearing = documentSnapshot.toObject(DB_CaseHearing.class);
                     String case_type = db_caseHearing.getCase_type();
+                    String case_id = db_caseHearing.getCase_id();
                     String advocate_name = db_caseHearing.getAdvocate_name();
                     String  case_title = db_caseHearing.getCase_title();
                     String ndh = db_caseHearing.getNdh();
                     String purpose = db_caseHearing.getPurpose();
                     String last_updated = db_caseHearing.getLast_updated();
 
-                    hearing += serial_no+ ".Case Type : " +case_type + "\n   Advocate Name : " +advocate_name +"\n   Case Title : " +case_title + "\n   NDH : " +ndh + "\n   Purpose : " +purpose +"\n   Last Updated : " +last_updated + "\n\n";
+                    hearing += serial_no+ ".Case Type : " +case_type + "\n   Case ID : " +case_id +  "\n   Advocate Name : " +advocate_name +"\n   Case Title : " +case_title + "\n   NDH : " +ndh + "\n   Purpose : " +purpose +"\n   Last Updated : " +last_updated + "\n\n";
                     serial_no++;
                 }
                 hearings.setText(hearing);

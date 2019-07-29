@@ -20,7 +20,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="35dp"
                 android:text="Submit Details"
                 android:textColor="@color/white"
                 android:textSize="30dp"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -69,13 +69,25 @@
                         android:textSize="20dp"/>
                 </RadioGroup>
 
+                <EditText
+                    android:id="@+id/case_id"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textview_shape"
+                    android:layout_marginTop="35dp"
+                    android:layout_gravity="center"
+                    android:hint="Case ID"
+                    android:padding="6dp"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="number" />
 
                 <EditText
                     android:id="@+id/advocate_name"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/textview_shape"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="35dp"
                     android:layout_gravity="center"
                     android:hint="Name of Advocate"
                     android:padding="6dp"
@@ -89,7 +101,7 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/textview_shape"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="35dp"
                     android:layout_gravity="center"
                     android:hint="Case Title"
                     android:padding="6dp"
@@ -103,7 +115,7 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/textview_shape"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="35dp"
                     android:layout_gravity="center"
                     android:hint="NDH"
                     android:padding="6dp"
@@ -117,7 +129,7 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/textview_shape"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="35dp"
                     android:layout_gravity="center"
                     android:hint="Purpose"
                     android:padding="6dp"
@@ -136,7 +148,7 @@
                 android:text="Submit"
                 android:textStyle="bold"
                 android:layout_gravity="center"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="40dp"
                 android:textColor="@color/startcolor"/>
 
         </LinearLayout>
