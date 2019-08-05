@@ -34,7 +34,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="80dp"
                 android:inputType="textPersonName"
-                android:hint="Advocate Name"
+                android:hint="Enter Name"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
                 android:padding="6dp"/>

@@ -61,7 +61,7 @@ public class Add_Advocate extends AppCompatActivity implements View.OnClickListe
 
                 }
                 Spinner spinner = (Spinner) findViewById(R.id.spinner);
-                ArrayAdapter aa = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item, Advocates);
+                ArrayAdapter aa = new ArrayAdapter(getApplicationContext(),R.layout.spinner_layout, Advocates);
                 aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner.setAdapter(aa);
             }
