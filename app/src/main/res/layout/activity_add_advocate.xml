@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Add_Advocate"
-    android:background="@drawable/gradient_color">
+    tools:context=".Add_Advocate">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -21,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
                 android:text="Add New Advocate"
-                android:textColor="@color/white"
+                android:textColor="@color/endcolor"
                 android:textSize="30dp"
                 android:layout_gravity="center"
                 android:textStyle="bold" />
@@ -35,8 +34,8 @@
                 android:layout_marginTop="80dp"
                 android:inputType="textPersonName"
                 android:hint="Enter Name"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
+                android:textColorHint="@color/endcolor"
+                android:textColor="@color/endcolor"
                 android:padding="6dp"/>
 
             <Button
@@ -45,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_shape"
                 android:text="Add"
-                android:textColor="@color/startcolor"
+                android:textColor="@color/white"
                 android:layout_gravity="center"
                 android:layout_marginTop="80dp"
                 />
@@ -55,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
                 android:text="Advocate Listings"
-                android:textColor="@color/white"
+                android:textColor="@color/endcolor"
                 android:textSize="30dp"
                 android:layout_gravity="center"
                 android:textStyle="bold" />

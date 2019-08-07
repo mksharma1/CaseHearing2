@@ -39,5 +39,13 @@
 
         </menu>
     </item>
+    <item android:title="Developer">
+        <menu>
+            <item
+                android:id="@+id/nav_developer"
+                android:title="App Developers" />
+
+        </menu>
+    </item>
 
 </menu>

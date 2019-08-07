@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Add_Hearing"
-    android:background="@drawable/gradient_color">
+    tools:context=".Add_Hearing">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -20,9 +19,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="30dp"
                 android:text="Submit Details"
-                android:textColor="@color/white"
+                android:textColor="@color/endcolor"
                 android:textSize="30dp"
                 android:layout_gravity="center"
                 android:textStyle="bold"
@@ -38,12 +37,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="30dp"
                     android:text="Case Type "
                     android:layout_gravity="left"
                     android:padding="6dp"
                     android:textSize="20dp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/endcolor"
                     />
 
                 <RadioGroup
@@ -54,17 +53,19 @@
                     android:orientation="horizontal">
 
                     <RadioButton
+                        android:id="@+id/civil"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Civil"
-                        android:textColor="@color/white"
+                        android:textColor="@color/endcolor"
                         android:textSize="20dp"/>
 
                     <RadioButton
+                        android:id="@+id/criminal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Criminal"
-                        android:textColor="@color/white"
+                        android:textColor="@color/endcolor"
                         android:layout_marginLeft="50dp"
                         android:textSize="20dp"/>
                 </RadioGroup>
@@ -78,8 +79,8 @@
                     android:layout_gravity="center"
                     android:hint="Case ID"
                     android:padding="6dp"
-                    android:textColorHint="@color/white"
-                    android:textColor="@color/white"
+                    android:textColorHint="@color/endcolor"
+                    android:textColor="@color/endcolor"
                     android:inputType="number" />
 
                 <Spinner
@@ -101,8 +102,8 @@
                     android:layout_gravity="center"
                     android:hint="Case Title"
                     android:padding="6dp"
-                    android:textColorHint="@color/white"
-                    android:textColor="@color/white"
+                    android:textColorHint="@color/endcolor"
+                    android:textColor="@color/endcolor"
                     android:inputType="text"
                     />
 
@@ -113,26 +114,21 @@
                     android:background="@drawable/textview_shape"
                     android:layout_marginTop="35dp"
                     android:layout_gravity="center"
-                    android:hint="NDH"
+                    android:hint="NDH (dd/mm/yyyy)"
                     android:padding="6dp"
-                    android:textColorHint="@color/white"
-                    android:textColor="@color/white"
-                    android:inputType="text"
+                    android:textColorHint="@color/endcolor"
+                    android:textColor="@color/endcolor"
+                    android:inputType="date"
                     />
 
-                <EditText
+                <Spinner
                     android:id="@+id/purpose"
                     android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/textview_shape"
+                    android:layout_height="35dp"
                     android:layout_marginTop="35dp"
                     android:layout_gravity="center"
-                    android:hint="Purpose"
-                    android:padding="6dp"
-                    android:textColorHint="@color/white"
-                    android:textColor="@color/white"
-                    android:inputType="text"
-                    />
+                    android:background="@drawable/textview_shape"
+                    ></Spinner>
 
             </LinearLayout>
 
@@ -145,7 +141,7 @@
                 android:textStyle="bold"
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
-                android:textColor="@color/startcolor"/>
+                android:textColor="@color/white"/>
 
         </LinearLayout>
 

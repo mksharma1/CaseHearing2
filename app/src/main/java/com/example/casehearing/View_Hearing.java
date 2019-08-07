@@ -4,6 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
@@ -21,13 +25,20 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 
 public class View_Hearing extends AppCompatActivity {
@@ -39,6 +50,7 @@ public class View_Hearing extends AppCompatActivity {
     private CollectionReference CaseHearing = db.collection("CaseHearings");
     private DocumentReference hearing = CaseHearing.document("first_hearing");
     ProgressDialog progressDialog;
+    public File file;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,63 +113,56 @@ public class View_Hearing extends AppCompatActivity {
 
         switch (id) {
             case R.id.download:
-                /*try {
+                try {
                     createPdf();
                 } catch (FileNotFoundException e) {
+                    Toast.makeText(getApplicationContext(),"File Not Found Exception",Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 } catch (DocumentException e) {
+                    Toast.makeText(getApplicationContext(),"Document Exception",Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
                 return true;
-        }*/}
+        }
 
                 return true;
 
     }
-   /* private void createPdf() throws FileNotFoundException, DocumentException {
+    private void createPdf() throws FileNotFoundException, DocumentException {
 
-        File pdfFolder = new File(Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_DOCUMENTS), "pdfdemo");
-        if (!pdfFolder.exists()) {
-            pdfFolder.mkdir();
-
-        }
-
-        //Create time stamp
         Date date = new Date() ;
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(date);
-
-        File myFile = new File(pdfFolder + timeStamp + ".pdf");
-
-        OutputStream output = new FileOutputStream(myFile);
-
-        //Step 1
-        Document document = new Document();
-
-        //Step 2
-        try {
-            PdfWriter.getInstance(document, output);
-        } catch (com.itextpdf.text.DocumentException e) {
-            e.printStackTrace();
+        String path = getExternalFilesDir(null).toString()+"/CaseHearings"+timeStamp+".pdf";
+        file = new File(path);
+        if(!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
-        //Step 3
+        Document document = new Document(PageSize.A4);
+        PdfWriter.getInstance(document, new FileOutputStream(file.getAbsoluteFile()));
         document.open();
-
-        //Step 4 Add content
-        try {
-            document.add(new Paragraph(hearings.getText().toString()));
-        } catch (com.itextpdf.text.DocumentException e) {
-            e.printStackTrace();
-        }
-
-        //Step 5: Close the document
+        document.add(new Paragraph(hearings.getText().toString()));
+        Toast.makeText(getApplicationContext(),"PDF Downloaded",Toast.LENGTH_LONG).show();
         document.close();
+        //priviewPdf();
+    }
 
-    }*/
-
-
-
+     /*private void priviewPdf(){
+        Uri uri = Uri.fromFile(file);
+        Intent pdfIntent  = new Intent(Intent.ACTION_VIEW);
+        pdfIntent.setDataAndType(uri,"application/pdf");
+        pdfIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        try {
+            startActivity(pdfIntent);
+        }catch (ActivityNotFoundException e){
+            Toast.makeText(getApplicationContext(),"No Application available to view PDF",Toast.LENGTH_LONG).show();
+        }
+     }
+*/
     public void loadHearings()
     {
         progressDialog.setMessage("Loading...");

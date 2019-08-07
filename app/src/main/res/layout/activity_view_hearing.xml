@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View_Hearing"
-    android:background="@drawable/gradient_color">
+    tools:context=".View_Hearing">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -21,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:text="Case Hearings"
-                android:textColor="@color/white"
+                android:textColor="@color/endcolor"
                 android:textSize="30dp"
                 android:layout_gravity="center"
                 android:textStyle="bold"
@@ -39,19 +38,20 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/textview_shape"
-                android:textColor="@color/white"
+                android:textColor="@color/endcolor"
                 android:hint="Search Case Id"
-                android:textColorHint="@color/white"
+                android:textColorHint="@color/endcolor"
                 android:padding="6dp"
                 />
 
             <ImageView
                 android:id="@+id/search"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="6dp"
                 android:src="@drawable/search_icon"
+                android:background="@color/endcolor"
                 />
 
         </LinearLayout>
@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
-                android:textColor="@color/white"
+                android:textColor="@color/endcolor"
                 android:layout_marginLeft="30dp"
                 />
 
