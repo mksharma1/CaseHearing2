@@ -16,28 +16,68 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Access To Justice For All"
+    android:background="@drawable/custom_button"
+    android:textColor="#ffffff"
+    android:textSize="20dp"
+    android:layout_margin="10dp"
+    android:gravity="center"/>
+            <ViewFlipper
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:id="@+id/flipper"
+                android:autoStart="true"
+                android:layout_marginTop="10dp"
 
+                android:flipInterval="3000">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+
+                    android:src="@drawable/pic11" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/pic12" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/pic13" />
+            </ViewFlipper>
+
+`
             <Button
                 android:id="@+id/add_hearing"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="Add Hearing"
                 android:textColor="@color/white"
-                android:background="@drawable/button_shape"
-                android:layout_marginTop="100dp"
+                android:background="@drawable/custom_button"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"
                 android:layout_gravity="center"
-                android:textStyle="bold"/>
+                />
+
 
             <Button
                 android:id="@+id/view_hearing"
                 android:layout_width="200dp"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
+             android:layout_marginTop="50dp"
+                android:background="@drawable/custom_button"
                 android:text="View Hearing"
                 android:textColor="@color/white"
-                android:background="@drawable/button_shape"
-                android:layout_marginTop="100dp"
-                android:layout_gravity="center"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/add_advocate"
@@ -45,8 +85,8 @@
                 android:layout_height="wrap_content"
                 android:text="Add Advocate"
                 android:textColor="@color/white"
-                android:background="@drawable/button_shape"
-                android:layout_marginTop="100dp"
+                android:background="@drawable/custom_button"
+                android:layout_marginTop="50dp"
                 android:layout_gravity="center"
                 android:textStyle="bold"/>
 
@@ -56,8 +96,8 @@
                 android:layout_height="wrap_content"
                 android:text="About App"
                 android:textColor="@color/white"
-                android:background="@drawable/button_shape"
-                android:layout_marginTop="100dp"
+                android:background="@drawable/custom_button"
+                android:layout_marginTop="50dp"
                 android:layout_gravity="center"
                 android:textStyle="bold"/>
 
