@@ -15,10 +15,10 @@ public class AboutDev extends AppCompatActivity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    //    setContentView(R.layout.activity_about_dev);
+        setContentView(R.layout.activity_about_dev);
 
-      //  ln_aman = findViewById(R.id.ln_aman);
-        //ln_mohit = findViewById(R.id.ln_mohit);
+       ln_aman = findViewById(R.id.ln_aman);
+        ln_mohit = findViewById(R.id.ln_mohit);
         ln_aman.setOnClickListener(this);
         ln_mohit.setOnClickListener(this);
     }
