@@ -42,6 +42,13 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         login.setOnClickListener(this);
         signupText.setOnClickListener(this);
 
+        if(mAuth.getCurrentUser()!=null)
+        {
+            finish();
+            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
+        }
+
     }
 
     private void userLogin()
@@ -80,18 +87,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful() && mAuth.getCurrentUser().isEmailVerified())
+                if(task.isSuccessful())
                 {   finish();
                     Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
                     Intent i = new Intent(getApplicationContext(),MainActivity.class);
-                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(i);
-                }else if(task.isSuccessful() && !mAuth.getCurrentUser().isEmailVerified())
-                {
-
-                    Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
-                    finish();
-                    Intent i = new Intent(getApplicationContext(), Verification.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                 }else
@@ -101,24 +100,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 }
             }
         });
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
-        if(mAuth.getCurrentUser()!=null && mAuth.getCurrentUser().isEmailVerified())
-        {
-            finish();
-            Intent i = new Intent(getApplicationContext(),MainActivity.class);
-            startActivity(i);
-        }else if(mAuth.getCurrentUser()!=null && !mAuth.getCurrentUser().isEmailVerified())
-        {
-            finish();
-            Intent i = new Intent(getApplicationContext(), Verification.class);
-            startActivity(i);
-        }
     }
 
     @Override

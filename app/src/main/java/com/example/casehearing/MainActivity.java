@@ -25,11 +25,12 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
-    Button add_hearing,view_hearing,add_advocate,about;
+    Button add_hearing,view_hearing,add_advocate;
     FirebaseAuth mAuth;
     AlertDialog.Builder builder;
 
@@ -58,14 +59,29 @@ public class MainActivity extends AppCompatActivity
         add_hearing = findViewById(R.id.add_hearing);
         view_hearing = findViewById(R.id.view_hearing);
         add_advocate = findViewById(R.id.add_advocate);
-        about = findViewById(R.id.about);
+        //about = findViewById(R.id.about);
         add_hearing.setOnClickListener(this);
         view_hearing.setOnClickListener(this);
         add_advocate.setOnClickListener(this);
-        about.setOnClickListener(this);
+        //about.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
         builder = new AlertDialog.Builder(this);
+
+        if(mAuth.getCurrentUser()==null){
+            finish();
+            Intent i = new Intent(getApplicationContext(),Login.class);
+            startActivity(i);
+        }
+
+        String adminUid = "qCV4rvNowyYtSknFnwPCwAVdksq1";
+        String userEmail = mAuth.getCurrentUser().getUid();
+        if(userEmail.equals(adminUid)){
+            add_advocate.setVisibility(View.VISIBLE);
+        }else {
+            add_advocate.setVisibility(View.GONE);
+        }
+
 
     }
 
@@ -151,7 +167,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
-        } else if (id == R.id.about){
+        } else if (id == R.id.nav_about){
 
         } else if (id == R.id.nav_logout){
             builder.setMessage("Do You Want to Logout?");

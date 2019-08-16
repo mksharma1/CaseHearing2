@@ -90,7 +90,7 @@
                 android:layout_gravity="center"
                 android:textStyle="bold"/>
 
-            <Button
+            <!--EditText
                 android:id="@+id/about"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
                 android:background="@drawable/custom_button"
                 android:layout_marginTop="50dp"
                 android:layout_gravity="center"
-                android:textStyle="bold"/>
+                android:textStyle="bold"/-->
 
         </LinearLayout>
 

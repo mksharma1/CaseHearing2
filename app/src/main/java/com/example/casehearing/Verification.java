@@ -39,12 +39,6 @@ public class Verification extends AppCompatActivity implements View.OnClickListe
         progressDialog = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
 
-        if(mAuth.getCurrentUser()==null)
-        {
-            finish();
-            Intent intent = new Intent(getApplicationContext(),Login.class);
-            startActivity(intent);
-        }
 
         checkVerification();
 
@@ -52,15 +46,18 @@ public class Verification extends AppCompatActivity implements View.OnClickListe
 
     private void checkVerification() {
 
-
+         if(mAuth.getCurrentUser()==null){
+             finish();
+             Intent i = new Intent(getApplicationContext(),Login.class);
+             startActivity(i);
+         }
         if(mAuth.getCurrentUser().isEmailVerified())
         {   proceed.setText("Proceed");
             proceed.setEnabled(true);
             String verify_info = "<u>Email Verified</u>";
             verify.setText(Html.fromHtml(verify_info));
 
-        }
-        if(!mAuth.getCurrentUser().isEmailVerified())
+        }else
         {
             String verify_info = "<u>Email Not Verified. (Click to Verify)</u>";
             verify.setText(Html.fromHtml(verify_info));
@@ -100,8 +97,8 @@ public class Verification extends AppCompatActivity implements View.OnClickListe
     }
 
     protected void onStart() {
-        super.onStart();
         checkVerification();
+        super.onStart();
     }
 
 }
