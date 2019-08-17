@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
@@ -34,7 +35,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
-    Button add_hearing,view_hearing,add_advocate;
+    CardView add_hearing,view_hearing,add_advocate;
     FirebaseAuth mAuth;
     AlertDialog.Builder builder;
 
@@ -63,11 +64,9 @@ public class MainActivity extends AppCompatActivity
         add_hearing = findViewById(R.id.add_hearing);
         view_hearing = findViewById(R.id.view_hearing);
         add_advocate = findViewById(R.id.add_advocate);
-        //about = findViewById(R.id.about);
         add_hearing.setOnClickListener(this);
         view_hearing.setOnClickListener(this);
         add_advocate.setOnClickListener(this);
-        //about.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
         builder = new AlertDialog.Builder(this);
