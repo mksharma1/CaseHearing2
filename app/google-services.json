@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "647353742559-lggrfkausafm45kdlf4g6obmq0nfbrs6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.casehearing",
+            "certificate_hash": "bda353ab4c3ae5ff5a21d6ffe1c4c3ccc37c6791"
+          }
+        },
+        {
           "client_id": "647353742559-9p5qro3qsvsa86a77kn5fva0c5bmiopa.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

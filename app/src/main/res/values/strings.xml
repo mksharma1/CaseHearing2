@@ -6,7 +6,20 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_exit">Exit App</string>
-
+    <string name="about_app">Kurukshetra
+        <!--KURUKSHETRA is a place of great historical and religious importance, revered all over the country for-->
+        <!--its sacred association. Here, the battle of Mahabharata was fought and Lord Krishna preached his Philosophy of “KARMA”-->
+        <!--as enshrined in the Holy Gita to Arjuna at Jyotisar. In the very first verse of Bhagwat Gita, Kurukshetra is described as DHARAMKSHETRA-->
+        <!--i.e. field of righteousness. The name of “Kurukshetra” is derived from the name of king Kuru, the ancestor of Kauravas and Pandavas.-->
+        <!--Kurukshetra was created as a Revenue District in the year, 1973. Later on, two Courts of Sub Judge Ist Class were established in the year 1976,-->
+        <!--Courts of Additional District and Sessions Judge, Senior Sub Judge and Chief Judicial Magistrate were established. Kurukshetra Sessions Division-->
+        <!--was carved out of Karnal Sessions Divison in the year 1983 vide notification No. 231 Gaz. II (7)/XXI.A.5 dated 6.6.1983 issued by Hon\'ble Punjab and Haryana High Court,-->
+        <!--Chandigarh. Shri R.K.Nehru was posted as first District and Sessions Judge on 15.6.1983. Vide Hon'ble High Court's Notification No. 162 Gaz.II/XXI.A.5 dated 7.5.2005, Kaithal, District out of Kurukshetra Sessions Division was created as separate Sessions Division. Now, Kurukshetra Sessions Division consists of two Sub Divisions i.e. Pehowa and Shahabad. PEHOWA SUB DIVISION 27 km west of Thanesar lies Pehowa town. Today, it is an ancient place of great sanctity, where prayer and “Pind Daan” for ancestors is believed to grant “Moksha” or redemption from the cycle of birth and death. At Pehowa Sub Division, Court of Additional Senior Sub Judge-cum-Sub Divisional Judicial Magistrate was set up on 10.12.1990.-->
+        <!--SHAHABAD SUB DIVISION 25 km North of Kurukshetra lies Shahabad town.-->
+        <!--Gram Nyayalaya started its functioning at Shahabad Sub Division on 18.4.2010 for the purpose of-->
+        <!--providing easy access to justice to the citizens at their doorsteps. Regular Court at Shahabad-->
+        <!--started its functioning on 30.4.2016 vide endorsement no. 380/Gaz.I/VI.M.46 dated 12.04.2016-->
+    </string>>
     <string name="menu_home">Home</string>
     <string name="menu_addHearing">Add Hearing</string>
     <string name="menu_viewHearing">View Hearing</string>
