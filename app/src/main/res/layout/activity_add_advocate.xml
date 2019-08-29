@@ -31,12 +31,56 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/textview_shape"
                 android:layout_gravity="center"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="50dp"
                 android:inputType="textPersonName"
                 android:hint="Enter Name"
                 android:textColorHint="@color/endcolor"
                 android:textColor="@color/endcolor"
                 android:padding="6dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Period Of Emplayment"
+                android:textColor="@color/endcolor"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+                <EditText
+                    android:id="@+id/startDate"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textview_shape"
+                    android:layout_gravity="center"
+                    android:inputType="date"
+                    android:hint="Start Date"
+                    android:textColorHint="@color/endcolor"
+                    android:textColor="@color/endcolor"
+                    android:padding="6dp"
+                    android:layout_marginLeft="40dp"/>
+
+                <EditText
+                    android:id="@+id/endDate"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textview_shape"
+                    android:layout_gravity="center"
+                    android:inputType="date"
+                    android:hint="End Date"
+                    android:textColorHint="@color/endcolor"
+                    android:textColor="@color/endcolor"
+                    android:padding="6dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="40dp"/>
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/add"
@@ -46,7 +90,7 @@
                 android:text="Add"
                 android:textColor="@color/white"
                 android:layout_gravity="center"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="40dp"
                 />
 
             <TextView

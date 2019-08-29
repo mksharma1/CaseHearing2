@@ -3,11 +3,13 @@ package com.example.casehearing;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -21,10 +23,11 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Add_Advocate extends AppCompatActivity implements View.OnClickListener{
 
-    EditText advocate;
+    EditText advocate,startDate,endDate;
     Button add;
     ProgressDialog progressDialog;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -37,6 +40,10 @@ public class Add_Advocate extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_add_advocate);
 
         advocate = findViewById(R.id.advocate);
+        startDate = findViewById(R.id.startDate);
+        startDate.setOnClickListener(this);
+        endDate = findViewById(R.id.endDate);
+        endDate.setOnClickListener(this);
         add = findViewById(R.id.add);
         add.setOnClickListener(this);
         progressDialog = new ProgressDialog(this);
@@ -57,8 +64,9 @@ public class Add_Advocate extends AppCompatActivity implements View.OnClickListe
                 for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots)
                 {
                     DB_Advocates db_advocates = documentSnapshot.toObject(DB_Advocates.class);
-                   Advocates.add(db_advocates.getAdvocate());
-
+                    String advocate = db_advocates.getAdvocate() + " (" +db_advocates.getStartDate() + " - " +db_advocates.getEndDate() + ")";
+                   Advocates.add(advocate);
+                   advocate = "";
                 }
                 Spinner spinner = (Spinner) findViewById(R.id.spinner);
                 ArrayAdapter aa = new ArrayAdapter(getApplicationContext(),R.layout.spinner_layout, Advocates);
@@ -78,18 +86,72 @@ public class Add_Advocate extends AppCompatActivity implements View.OnClickListe
       if(view==add){
           addAdvocate();
       }
+      if(view == startDate){
+          int mYear, mMonth, mDay, mHour, mMinute;
+          final Calendar c = Calendar.getInstance();
+          mYear = c.get(Calendar.YEAR);
+          mMonth = c.get(Calendar.MONTH);
+          mDay = c.get(Calendar.DAY_OF_MONTH);
+
+
+          DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                  new DatePickerDialog.OnDateSetListener() {
+
+                      @Override
+                      public void onDateSet(DatePicker view, int year,
+                                            int monthOfYear, int dayOfMonth) {
+
+                          startDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+
+                      }
+                  }, mYear, mMonth, mDay);
+          datePickerDialog.show();
+      }
+      if(view == endDate){
+          int mYear, mMonth, mDay, mHour, mMinute;
+          final Calendar c = Calendar.getInstance();
+          mYear = c.get(Calendar.YEAR);
+          mMonth = c.get(Calendar.MONTH);
+          mDay = c.get(Calendar.DAY_OF_MONTH);
+
+
+          DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                  new DatePickerDialog.OnDateSetListener() {
+
+                      @Override
+                      public void onDateSet(DatePicker view, int year,
+                                            int monthOfYear, int dayOfMonth) {
+
+                          endDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+
+                      }
+                  }, mYear, mMonth, mDay);
+          datePickerDialog.show();
+      }
     }
 
     public void addAdvocate() {
-        String advocate_name = advocate.getText().toString();
+        String advocate_name = advocate.getText().toString().toLowerCase() ;
         if(advocate_name.isEmpty())
         {
             advocate.setError("Advocate Name is required");
             advocate.requestFocus();
             return;
         }
+        String startingDate = startDate.getText().toString();
+        if(startingDate.isEmpty()){
+            startDate.setError("Start Date is required");
+            startDate.requestFocus();
+            return;
+        }
+        String endingDate = endDate.getText().toString();
+        if(endingDate.isEmpty()){
+            endDate.setError("End Date is required");
+            endDate.requestFocus();
+            return;
+        }
 
-        DB_Advocates db_advocates = new DB_Advocates(advocate_name);
+        DB_Advocates db_advocates = new DB_Advocates(advocate_name,startingDate,endingDate);
         progressDialog.setMessage("Adding Name...");
         progressDialog.show();
         Advocates.add(db_advocates).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

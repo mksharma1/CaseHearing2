@@ -79,9 +79,6 @@ public class View_Hearing extends AppCompatActivity {
         radioButtonAdvocateName = findViewById(R.id.radioButtonAdvocateName);
         loadHearings();
 
-        radioButtonCaseId.setChecked(true);
-
-
         radioButtonCaseId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -305,7 +302,7 @@ public class View_Hearing extends AppCompatActivity {
                     });
                 } else {
 
-                    CaseHearing.whereEqualTo("advocate_name" ,search_result).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    CaseHearing.whereEqualTo("advocate_name" ,search_result.toLowerCase()).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
                         public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                             progressDialog.cancel();
@@ -489,10 +486,8 @@ public class View_Hearing extends AppCompatActivity {
                                 row.addView(lastUpdated);
                                 tt.addView(row,serial_no);
 
-                                //  hearing += serial_no+ ".Case Type : " +case_type + "\n   Case ID : " +case_id +  "\n   Advocate Name : " +advocate_name +"\n   Case Title : " +case_title + "\n   NDH : " +ndh + "\n   Purpose : " +purpose +"\n   Last Updated : " +last_updated + "\n\n";
                                 serial_no++;
                             }
-                            //  hearings.setText(hearing);
                             search_text.setText(search_result);
                         }
                     }).addOnFailureListener(new OnFailureListener() {
@@ -576,8 +571,6 @@ public class View_Hearing extends AppCompatActivity {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 progressDialog.cancel();
-
-                //String hearing = "";
 
                 TextView serialHeading = new TextView(getApplicationContext());
                 TextView DoA= new TextView(getApplicationContext());
@@ -687,7 +680,6 @@ public class View_Hearing extends AppCompatActivity {
                     String ndh = db_caseHearing.getNdh();
                     String purpose = db_caseHearing.getPurpose();
                     String last_updated = db_caseHearing.getLast_updated();
-                    //TextView serialNo = new TextView(getApplicationContext());
 
                     TextView serial = new TextView(getApplicationContext());
                     TextView doA = new TextView(getApplicationContext());
@@ -753,10 +745,9 @@ public class View_Hearing extends AppCompatActivity {
                     row.addView(lastUpdated);
                     tt.addView(row,serial_no);
 
-                 //   hearing += serial_no+ ".Case Type : " +case_type + "\n   Case ID : " +case_id +  "\n   Advocate Name : " +advocate_name +"\n   Case Title : " +case_title + "\n   NDH : " +ndh + "\n   Purpose : " +purpose +"\n   Last Updated : " +last_updated + "\n\n";
                     serial_no++;
                 }
-               // hearings.setText(hearing);
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

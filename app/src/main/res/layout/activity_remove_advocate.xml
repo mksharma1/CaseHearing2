@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RemoveAdvocate">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/LL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="Advocate Listings"
+                android:textColor="@color/endcolor"
+                android:textSize="30dp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/searchAdvocate"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/textview_shape"
+                    android:textColor="@color/endcolor"
+                    android:hint="Search Advocate"
+                    android:textColorHint="@color/endcolor"
+                    android:padding="6dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/searchButton"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="6dp"
+                    android:src="@drawable/search_icon"
+                    android:background="@color/endcolor"
+                    />
+
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableLayout
+                    android:id="@+id/tt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp">
+
+                    <TableRow
+                        android:layout_margin="10dp"
+                        android:padding="6dp"></TableRow>
+
+                </TableLayout>
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="Remove Advocate"
+                android:textColor="@color/endcolor"
+                android:textSize="30dp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                />
+
+            <EditText
+                android:id="@+id/removeAdvocate"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textview_shape"
+                android:layout_marginTop="35dp"
+                android:layout_gravity="center"
+                android:hint="Advocate Name"
+                android:padding="5dp"
+                android:textColorHint="@color/endcolor"
+                android:textColor="@color/endcolor"
+                android:inputType="text"
+                />
+
+            <Button
+                android:id="@+id/removeButton"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_shape"
+                android:text="Remove"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:textColor="@color/white"/>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

@@ -35,7 +35,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
-    CardView add_hearing,view_hearing,add_advocate;
+    CardView add_hearing,view_hearing,add_advocate,remove_advocate;
     FirebaseAuth mAuth;
     AlertDialog.Builder builder;
 
@@ -64,9 +64,11 @@ public class MainActivity extends AppCompatActivity
         add_hearing = findViewById(R.id.add_hearing);
         view_hearing = findViewById(R.id.view_hearing);
         add_advocate = findViewById(R.id.add_advocate);
+        remove_advocate = findViewById(R.id.remove_advocate);
         add_hearing.setOnClickListener(this);
         view_hearing.setOnClickListener(this);
         add_advocate.setOnClickListener(this);
+        remove_advocate.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
         builder = new AlertDialog.Builder(this);
@@ -81,8 +83,10 @@ public class MainActivity extends AppCompatActivity
         String userEmail = mAuth.getCurrentUser().getUid();
         if(userEmail.equals(adminUid)){
             add_advocate.setVisibility(View.VISIBLE);
+            remove_advocate.setVisibility(View.VISIBLE);
         }else {
             add_advocate.setVisibility(View.GONE);
+            remove_advocate.setVisibility(View.GONE);
         }
 
 
@@ -215,6 +219,10 @@ public class MainActivity extends AppCompatActivity
         if(view == add_advocate)
         {
             Intent intent = new Intent(getApplicationContext(),Add_Advocate.class);
+            startActivity(intent);
+        }
+        if(view == remove_advocate){
+            Intent intent = new Intent(getApplicationContext(),RemoveAdvocate.class);
             startActivity(intent);
         }
     }
