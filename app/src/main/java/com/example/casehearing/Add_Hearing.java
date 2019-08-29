@@ -149,7 +149,7 @@ public class Add_Hearing extends AppCompatActivity implements View.OnClickListen
 
             }
         if(view==radioButton_criminal){
-            String[] criminal_purpose = {"Purpose NDH","Awaiting Challan - Police Custody","Awaiting Challan - Judicial Custody","Awaiting Challan - On Bail","Arguments on framing of charge","PWs.","Statement of Accused under section 313 Cr.P.C.","DWs AND Arguments","Final Order/Judgement","Miscellaneous Application","Decided"};
+            String[] criminal_purpose = {"Purpose of NDH","Awaiting Challan - Police Custody","Awaiting Challan - Judicial Custody","Awaiting Challan - On Bail","Arguments on framing of charge","PWs.","Statement of Accused under section 313 Cr.P.C.","DWs AND Arguments","Final Order/Judgement","Miscellaneous Application","Decided"};
             Spinner purpose_spinner = (Spinner) findViewById(R.id.purpose);
             ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), R.layout.spinner_layout, criminal_purpose);
             arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

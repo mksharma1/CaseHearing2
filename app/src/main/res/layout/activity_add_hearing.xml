@@ -58,7 +58,9 @@
                         android:layout_height="wrap_content"
                         android:text="Civil"
                         android:textColor="@color/endcolor"
-                        android:textSize="20dp"/>
+                        android:textSize="20dp"
+                        android:checked="true"
+                        />
 
                     <RadioButton
                         android:id="@+id/criminal"
@@ -126,7 +128,8 @@
                     android:layout_width="250dp"
                     android:layout_height="35dp"
                     android:layout_marginTop="35dp"
-                    android:hint="Purpose NDH"
+                    android:hint="Purpose of NDH"
+
                     android:layout_gravity="center"
                     android:background="@drawable/textview_shape"
                     ></Spinner>
