@@ -117,6 +117,7 @@ public class View_Hearing extends AppCompatActivity {
                             tt.removeAllViews();
 
                             TextView serialHeading = new TextView(getApplicationContext());
+                            TextView DoA= new TextView(getApplicationContext());
                             TextView caseTypeHeading = new TextView(getApplicationContext());
                             TextView caseIdHeading = new TextView(getApplicationContext());
                             TextView advocateNameHeading = new TextView(getApplicationContext());
@@ -131,6 +132,14 @@ public class View_Hearing extends AppCompatActivity {
                             serialHeading.setTextColor(Color.WHITE);
                             serialHeading.setTextSize(20);
                             serialHeading.setPadding(8,2,8,2);
+
+                            DoA.setText("Date of Assignment by DLSA");
+                            DoA.setTypeface(null, Typeface.BOLD);
+                            DoA.setBackgroundResource(R.drawable.table_heading_shape);
+                            DoA.setTextColor(Color.WHITE);
+                            DoA.setTextSize(20);
+                            DoA.setPadding(8,2,8,2);
+
                             caseTypeHeading.setText("Case Type");
                             caseTypeHeading.setTypeface(null, Typeface.BOLD);
                             caseTypeHeading.setBackgroundResource(R.drawable.table_heading_shape);
@@ -183,6 +192,7 @@ public class View_Hearing extends AppCompatActivity {
                             Heading.setLayoutParams(headingParams);
 
                             Heading.addView(serialHeading);
+                            Heading.addView(DoA);
                             Heading.addView(caseTypeHeading);
                             Heading.addView(caseIdHeading);
                             Heading.addView(advocateNameHeading);
