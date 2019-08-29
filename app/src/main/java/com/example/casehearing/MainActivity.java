@@ -163,14 +163,10 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_addAdvocate) {
-            Intent intent = new Intent(getApplicationContext(),Add_Advocate.class);
+            Intent intent = new Intent(getApplicationContext(), Add_Advocate.class);
             startActivity(intent);
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        } else if (id == R.id.nav_about){
+        }
+        else if (id == R.id.nav_about){
 
         } else if (id == R.id.nav_logout){
             builder.setMessage("Do You Want to Logout?");

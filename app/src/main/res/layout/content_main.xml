@@ -29,8 +29,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:id="@+id/flipper"
+                android:layout_margin="5dp"
                 android:autoStart="true"
-                android:layout_marginTop="10dp"
+
 
                 android:flipInterval="3000">
 
@@ -39,19 +40,19 @@
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
 
-                    android:src="@drawable/pic11" />
+                    android:src="@drawable/pic" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/pic12" />
+                    android:src="@drawable/pic1" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/pic13" />
+                    android:src="@drawable/pic2" />
             </ViewFlipper>
 
 `
@@ -83,7 +84,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:src="@drawable/addhearings"
+                        android:src="@drawable/add"
                         android:scaleType="fitXY"
                         />
 

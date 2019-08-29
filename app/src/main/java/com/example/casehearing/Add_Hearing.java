@@ -140,15 +140,16 @@ public class Add_Hearing extends AppCompatActivity implements View.OnClickListen
           addHearing();
         }
         if(view==radioButton_civil){
-            String[] civil_purpose = {"Purpose","Filing","Appearance","WS","Arguments On Stay Application","Framing Of Issues","PWs","DWs","Rebuttal & Arguments","Final Order/Judgement"};
+            String[] civil_purpose = {"Purpose of NDH","Filing","Appearance","WS","Arguments On Stay Application","Framing Of Issues","PWs","DWs","Rebuttal & Arguments","Final Order/Judgement"};
             Spinner purpose_spinner = (Spinner) findViewById(R.id.purpose);
                 ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), R.layout.spinner_layout, civil_purpose);
                 arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 purpose_spinner.setAdapter(arrayAdapter);
 
+
             }
         if(view==radioButton_criminal){
-            String[] criminal_purpose = {"Purpose","Awaiting Challan - Police Custody","Awaiting Challan - Judicial Custody","Awaiting Challan - On Bail","Arguments on framing of charge","PWs.","Statement of Accused under section 313 Cr.P.C.","DWs AND Arguments","Final Order/Judgement","Miscellaneous Application","Decided"};
+            String[] criminal_purpose = {"Purpose NDH","Awaiting Challan - Police Custody","Awaiting Challan - Judicial Custody","Awaiting Challan - On Bail","Arguments on framing of charge","PWs.","Statement of Accused under section 313 Cr.P.C.","DWs AND Arguments","Final Order/Judgement","Miscellaneous Application","Decided"};
             Spinner purpose_spinner = (Spinner) findViewById(R.id.purpose);
             ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), R.layout.spinner_layout, criminal_purpose);
             arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
