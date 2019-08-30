@@ -77,6 +77,8 @@ public class View_Hearing extends AppCompatActivity {
         searchOption = findViewById(R.id.searchOption);
         radioButtonCaseId = findViewById(R.id.radioButtonCaseId);
         radioButtonAdvocateName = findViewById(R.id.radioButtonAdvocateName);
+
+        radioButtonCaseId.setChecked(true);
         loadHearings();
 
         radioButtonCaseId.setOnClickListener(new View.OnClickListener() {
@@ -214,7 +216,7 @@ public class View_Hearing extends AppCompatActivity {
 
                                 DB_CaseHearing db_caseHearing = documentSnapshot.toObject(DB_CaseHearing.class);
                                 String no = Integer.toString(serial_no);
-                                String blankString = " ";
+                                String blankString = db_caseHearing.getDoa();
                                 String case_type = db_caseHearing.getCase_type();
                                 String case_id = db_caseHearing.getCase_id();
                                 String advocate_name = db_caseHearing.getAdvocate_name();
@@ -413,7 +415,7 @@ public class View_Hearing extends AppCompatActivity {
 
                                 DB_CaseHearing db_caseHearing = documentSnapshot.toObject(DB_CaseHearing.class);
                                 String no = Integer.toString(serial_no);
-                                String blankString = " ";
+                                String blankString = db_caseHearing.getDoa();
                                 String case_type = db_caseHearing.getCase_type();
                                 String case_id = db_caseHearing.getCase_id();
                                 String advocate_name = db_caseHearing.getAdvocate_name();
@@ -672,7 +674,7 @@ public class View_Hearing extends AppCompatActivity {
 
                     DB_CaseHearing db_caseHearing = documentSnapshot.toObject(DB_CaseHearing.class);
                     String no = Integer.toString(serial_no);
-                    String blankString = " ";
+                    String blankString = db_caseHearing.getDoa();
                     String case_type = db_caseHearing.getCase_type();
                     String case_id = db_caseHearing.getCase_id();
                     String advocate_name = db_caseHearing.getAdvocate_name();

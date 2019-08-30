@@ -34,7 +34,7 @@ import java.util.Date;
 
 public class Add_Hearing extends AppCompatActivity implements View.OnClickListener {
 
-    EditText case_id,advocate_name,case_title,ndh;
+    EditText case_id,advocate_name,case_title,ndh,doA;
     Button submit;
     ProgressDialog progressDialog;
     RadioGroup radioGroup;
@@ -54,6 +54,7 @@ public class Add_Hearing extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_add_hearing);
 
         case_id = findViewById(R.id.case_id);
+        doA = findViewById(R.id.doa);
         final Spinner advocate_name = (Spinner) findViewById(R.id.advocate_name);
         case_title = findViewById(R.id.case_title);
         ndh = findViewById(R.id.ndh);
@@ -146,7 +147,6 @@ public class Add_Hearing extends AppCompatActivity implements View.OnClickListen
                 arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 purpose_spinner.setAdapter(arrayAdapter);
 
-
             }
         if(view==radioButton_criminal){
             String[] criminal_purpose = {"Purpose of NDH","Awaiting Challan - Police Custody","Awaiting Challan - Judicial Custody","Awaiting Challan - On Bail","Arguments on framing of charge","PWs.","Statement of Accused under section 313 Cr.P.C.","DWs AND Arguments","Final Order/Judgement","Miscellaneous Application","Decided"};
@@ -154,6 +154,27 @@ public class Add_Hearing extends AppCompatActivity implements View.OnClickListen
             ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), R.layout.spinner_layout, criminal_purpose);
             arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             purpose_spinner.setAdapter(arrayAdapter);
+        }
+        if(view == doA){
+            int mYear, mMonth, mDay, mHour, mMinute;
+            final Calendar c = Calendar.getInstance();
+            mYear = c.get(Calendar.YEAR);
+            mMonth = c.get(Calendar.MONTH);
+            mDay = c.get(Calendar.DAY_OF_MONTH);
+
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                    new DatePickerDialog.OnDateSetListener() {
+
+                        @Override
+                        public void onDateSet(DatePicker view, int year,
+                                              int monthOfYear, int dayOfMonth) {
+
+                            doA.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+
+                        }
+                    }, mYear, mMonth, mDay);
+            datePickerDialog.show();
         }
         if(view==ndh){
             int mYear, mMonth, mDay, mHour, mMinute;
@@ -185,6 +206,7 @@ public void addHearing() {
         try {
             String case_type = radioButton.getText().toString();
             String id = case_id.getText().toString();
+            String doa = doA.getText().toString();
             String title = case_title.getText().toString();
             final String get_ndh = ndh.getText().toString();
 
@@ -225,7 +247,7 @@ public void addHearing() {
             progressDialog.setMessage("Saving Info...");
             progressDialog.show();
 
-            DB_CaseHearing db_caseHearing = new DB_CaseHearing(case_type, id, advocates, title, get_ndh, purposes, last_updated);
+            DB_CaseHearing db_caseHearing = new DB_CaseHearing(case_type, id,doa,advocates, title, get_ndh, purposes, last_updated);
 
             CaseHearing.add(db_caseHearing).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override

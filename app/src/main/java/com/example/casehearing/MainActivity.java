@@ -31,6 +31,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -79,14 +80,17 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
         }
 
+
         String adminUid = "qCV4rvNowyYtSknFnwPCwAVdksq1";
         String userEmail = mAuth.getCurrentUser().getUid();
         if(userEmail.equals(adminUid)){
             add_advocate.setVisibility(View.VISIBLE);
             remove_advocate.setVisibility(View.VISIBLE);
+
         }else {
             add_advocate.setVisibility(View.GONE);
             remove_advocate.setVisibility(View.GONE);
+
         }
 
 
@@ -167,7 +171,22 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_addAdvocate) {
+            String adminUid = "qCV4rvNowyYtSknFnwPCwAVdksq1";
+            String userEmail = mAuth.getCurrentUser().getUid();
+            if(!(userEmail.equals(adminUid))){
+                Toast.makeText(getApplicationContext(),"You don't have permission to this page...",Toast.LENGTH_LONG).show();
+                return true;
+            }
             Intent intent = new Intent(getApplicationContext(), Add_Advocate.class);
+            startActivity(intent);
+        } else if(id == R.id.nav_removeAdvocate) {
+            String adminUid = "qCV4rvNowyYtSknFnwPCwAVdksq1";
+            String userEmail = mAuth.getCurrentUser().getUid();
+            if(!(userEmail.equals(adminUid))){
+                Toast.makeText(getApplicationContext(),"You don't have permission to this page...",Toast.LENGTH_LONG).show();
+                return true;
+            }
+            Intent intent = new Intent(getApplicationContext(), RemoveAdvocate.class);
             startActivity(intent);
         }
         else if (id == R.id.nav_about){

@@ -59,7 +59,6 @@
                         android:text="Civil"
                         android:textColor="@color/endcolor"
                         android:textSize="20dp"
-                        android:checked="true"
                         />
 
                     <RadioButton
@@ -84,6 +83,19 @@
                     android:textColorHint="@color/endcolor"
                     android:textColor="@color/endcolor"
                     android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/doa"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textview_shape"
+                    android:layout_marginTop="35dp"
+                    android:layout_gravity="center"
+                    android:hint="Date of Assignment"
+                    android:padding="6dp"
+                    android:textColorHint="@color/endcolor"
+                    android:textColor="@color/endcolor"
+                    android:inputType="date"/>
 
                 <Spinner
                     android:id="@+id/advocate_name"

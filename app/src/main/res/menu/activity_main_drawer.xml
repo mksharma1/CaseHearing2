@@ -16,6 +16,9 @@
         <item
             android:id="@+id/nav_addAdvocate"
             android:title="@string/menu_addAdvocate" />
+        <item
+            android:id="@+id/nav_removeAdvocate"
+            android:title="Remove Advocate" />
     </group>
 
 

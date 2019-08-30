@@ -9,13 +9,15 @@ public class DB_CaseHearing {
     private String last_updated;
     private String case_type;
     private String case_id;
+    private String doa;
 
     public DB_CaseHearing(){}
 
-    public DB_CaseHearing(String case_type,String case_id,String advocate_name,String case_title,String ndh,String purpose,String last_updated)
+    public DB_CaseHearing(String case_type,String case_id,String doa,String advocate_name,String case_title,String ndh,String purpose,String last_updated)
     {
         this.case_type = case_type;
         this.case_id = case_id;
+        this.doa = doa;
         this.advocate_name = advocate_name;
         this.case_title = case_title;
         this.ndh = ndh;
@@ -30,6 +32,8 @@ public class DB_CaseHearing {
     public String getCase_id(){
         return case_id;
     }
+
+    public String getDoa() { return doa;}
 
     public String getAdvocate_name(){
         return advocate_name;
