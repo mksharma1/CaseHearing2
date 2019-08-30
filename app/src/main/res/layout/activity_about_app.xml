@@ -15,16 +15,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="About DISTRICT COURT KURUKSHETRA \n"
+                android:text="About App\n"
                 android:textColor="@color/endcolor"
                 android:textSize="18dp"
                 style="@style/TextAppearance.AppCompat.Headline"
                 />
+          
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/about_app"
                 android:textSize="16dp"
+                android:text="The Objective of this App is to make it convenient for the Panel Advocate as well as the office of DLSA to share and view the status update of the cases. The other ancillary objects including messaging service through notification, quick replies, as well as the promotion of digitization. "
                 />
 
 
