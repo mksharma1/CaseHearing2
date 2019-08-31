@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
-                android:text="The Objective of this App is to make it convenient for the Panel Advocate as well as the office of DLSA to share and view the status update of the cases. The other ancillary objects including messaging service through notification, quick replies, as well as the promotion of digitization. "
+                android:text="The Objective of this App is to make it convenient for the Panel Advocate as well as the office of DLSA to share and view the status update of the cases. The other ancillary objects includes messaging service through notification, quick replies, as well as the promotion of digitization. "
                 />
 
 
@@ -45,7 +45,13 @@
                 android:textSize="20sp"
                 android:text="DLSA HelpLine Number: 01744-220216" />
 
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:autoLink="phone"
+                android:textSize="20sp"
+                android:text="Email: dlsakrk@gmail.com" />
 
         </LinearLayout>
 

@@ -331,7 +331,7 @@ public class View_Hearing extends AppCompatActivity {
                             serialHeading.setTextSize(20);
                             serialHeading.setPadding(8,2,8,2);
 
-                            DoA.setText("Date of Assignment by DLSA");
+                            DoA.setText("Date of Assignment");
                             DoA.setTypeface(null, Typeface.BOLD);
                             DoA.setBackgroundResource(R.drawable.table_heading_shape);
                             DoA.setTextColor(Color.WHITE);
@@ -591,7 +591,7 @@ public class View_Hearing extends AppCompatActivity {
                 serialHeading.setTextSize(20);
                 serialHeading.setPadding(8,2,8,2);
 
-                DoA.setText("Date of Assignment by DLSA");
+                DoA.setText("Date of Assignment");
                 DoA.setTypeface(null, Typeface.BOLD);
                 DoA.setBackgroundResource(R.drawable.table_heading_shape);
                 DoA.setTextColor(Color.WHITE);
