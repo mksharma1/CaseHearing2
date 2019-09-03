@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if(id == R.id.nav_removeAdvocate) {
 
-            String userEmail = mAuth.getCurrentUser().getEmail();
+            String userEmail = mAuth.getCurrentUser().getEmail()  ;
             if(userEmail.equals(admin1) || userEmail.equals(admin2)){
                 Intent intent = new Intent(getApplicationContext(), RemoveAdvocate.class);
                 startActivity(intent);

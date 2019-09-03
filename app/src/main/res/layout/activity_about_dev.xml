@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".AboutDev"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="10dp">
 
         <!--<WebView
             android:id="@+id/wbcse1"  android:layout_below="@+id/wbcse"
@@ -18,7 +18,7 @@
             android:textColor="#000000"
             android:layout_margin="8dp" />-->
 
-        <TextView
+        <!--TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -26,27 +26,238 @@
             android:text="Developed By -"
             android:textStyle="bold"
             android:textColor="@color/endcolor"
-            android:textAlignment="center"/>
-        <TextView
+            android:textAlignment="center"/-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="173dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/uiet"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="173dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.1"
+                    android:src="@drawable/aman"
+                    android:scaleType="centerCrop"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1.9">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="35dp"
+                        android:text="Aman Mehta"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textAlignment="center" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="Student - UIET,KUK"
+                        android:textStyle="bold"
+                        android:textSize="10sp"
+                        android:textAlignment="center" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/mailicon"
+                            android:layout_margin="6dp"/>
+                        <TextView
+                            android:id="@+id/amanEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            android:textSize="12sp"
+                            android:textColor="@color/blue"
+                            android:text=" amanmehta4411@gmail.com"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/linkedin_icon"
+                            android:layout_margin="6dp"/>
+                        <TextView
+                            android:id="@+id/ln_aman"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            android:textSize="12sp"
+                            android:textColor="@color/blue"
+                            android:text="Connect Aman Mehta on LinkedIn" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="173dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.1"
+                    android:src="@drawable/mohit"
+                    android:scaleType="centerCrop"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1.9">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="35dp"
+                        android:text="Mohit Sharma"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textAlignment="center"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="Student - UIET,KUK"
+                        android:textStyle="bold"
+                        android:textSize="10sp"
+                        android:textAlignment="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/mailicon"
+                            android:layout_margin="6dp"/>
+                        <TextView
+                            android:id="@+id/mohitEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            android:textSize="12sp"
+                            android:textColor="@color/blue"
+                            android:text=" mohit1999sh@gmail.com"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/mk3"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/linkedin_icon"
+                            android:layout_margin="6dp"/>
+                        <TextView
+                            android:id="@+id/ln_mohit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            android:textSize="12sp"
+                            android:textColor="@color/blue"
+                            android:text="Connect Mohit Sharma on LinkedIn"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!--TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textSize="16sp"
 
             android:text="Aman Mehta "
-            android:textAlignment="center" />
-        <TextView
+            android:textAlignment="center" /-->
+
+        <!--TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textSize="16sp"
             android:text="Mohit Sharma "
-            android:textAlignment="center" />
+            android:textAlignment="center" /-->
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:textSize="20sp"
             android:text="Under The Supervision Of -"
             android:textColor="@color/endcolor"
@@ -69,63 +280,6 @@
             android:text="Atul Sharma(Asst. Prof.)"
             android:textAlignment="center" />
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Connect With Us - "
-            android:textSize="20sp"
-            android:padding="20dp"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/endcolor"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rh3"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:src="@drawable/linkedin_icon"
-                android:layout_margin="6dp"/>
-            <TextView
-                android:id="@+id/ln_aman"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-                android:textSize="16sp"
-                android:textColor="@color/blue"
-                android:text="Connect Aman Mehta on LinkedIn"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/mk3"
-            android:layout_marginLeft="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:src="@drawable/linkedin_icon"
-                android:layout_margin="6dp"/>
-            <TextView
-                android:id="@+id/ln_mohit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-                android:textSize="16sp"
-                android:textColor="@color/blue"
-                android:text="Connect Mohit Sharma on LinkedIn"/>
-        </LinearLayout>
 
     </LinearLayout>
 

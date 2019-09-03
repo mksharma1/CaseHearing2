@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class AboutDev extends AppCompatActivity implements View.OnClickListener {
 
-    TextView ln_aman,ln_mohit;
+    TextView ln_aman,ln_mohit,amanEmail,mohitEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +26,12 @@ public class AboutDev extends AppCompatActivity implements View.OnClickListener 
 
         }
 
-       ln_aman = findViewById(R.id.ln_aman);
+        ln_aman = findViewById(R.id.ln_aman);
         ln_mohit = findViewById(R.id.ln_mohit);
+        amanEmail = findViewById(R.id.amanEmail);
+        mohitEmail = findViewById(R.id.mohitEmail);
+        amanEmail.setOnClickListener(this);
+        mohitEmail.setOnClickListener(this);
         ln_aman.setOnClickListener(this);
         ln_mohit.setOnClickListener(this);
     }
@@ -57,6 +61,16 @@ public class AboutDev extends AppCompatActivity implements View.OnClickListener 
                 Intent twi = new Intent(Intent.ACTION_VIEW, Uri.parse(linkedInProfileUrl));
                 startActivity(twi);
             }
+        }
+        if(view == amanEmail){
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                    "mailto","amanmehta4411@gmail.com", null));
+            startActivity(Intent.createChooser(emailIntent, "Send email..."));
+        }
+        if(view == mohitEmail){
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                    "mailto","mohit1999sh@gmail.com", null));
+            startActivity(Intent.createChooser(emailIntent, "Send email..."));
         }
     }
     public boolean onOptionsItemSelected(MenuItem item){
