@@ -1,6 +1,7 @@
 package com.example.casehearing;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -8,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,6 +39,13 @@ public class RemoveAdvocate extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remove_advocate);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Remove Advocates");
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+
+        }
 
         searchAdvocate = findViewById(R.id.searchAdvocate);
         removeAdvocate = findViewById(R.id.removeAdvocate);
@@ -290,5 +299,14 @@ public class RemoveAdvocate extends AppCompatActivity implements View.OnClickLis
                 Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

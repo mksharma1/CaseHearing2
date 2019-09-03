@@ -1,10 +1,12 @@
 package com.example.casehearing;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,6 +18,13 @@ public class AboutDev extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_dev);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("App Developers");
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+
+        }
 
        ln_aman = findViewById(R.id.ln_aman);
         ln_mohit = findViewById(R.id.ln_mohit);
@@ -49,5 +58,13 @@ public class AboutDev extends AppCompatActivity implements View.OnClickListener 
                 startActivity(twi);
             }
         }
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

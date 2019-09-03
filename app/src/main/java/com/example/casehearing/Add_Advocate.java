@@ -1,11 +1,13 @@
 package com.example.casehearing;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -38,6 +40,13 @@ public class Add_Advocate extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_advocate);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Add Advocates");
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+
+        }
 
         advocate = findViewById(R.id.advocate);
         startDate = findViewById(R.id.startDate);
@@ -167,5 +176,14 @@ public class Add_Advocate extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -40,6 +40,10 @@ public class MainActivity extends AppCompatActivity
     FirebaseAuth mAuth;
     AlertDialog.Builder builder;
 
+     private String admin1 = "amanmehta4411@gmail.com";
+    private  String admin2 = "dlsakrk@gmail.com";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,10 +84,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
         }
 
-
-        String adminUid = "qCV4rvNowyYtSknFnwPCwAVdksq1";
-        String userEmail = mAuth.getCurrentUser().getUid();
-        if(userEmail.equals(adminUid)){
+        String userEmail = mAuth.getCurrentUser().getEmail();
+        if(userEmail.equals(admin1) || userEmail.equals(admin2)){
             add_advocate.setVisibility(View.VISIBLE);
             remove_advocate.setVisibility(View.VISIBLE);
 
@@ -92,7 +94,6 @@ public class MainActivity extends AppCompatActivity
             remove_advocate.setVisibility(View.GONE);
 
         }
-
 
     }
 
@@ -171,18 +172,18 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_addAdvocate) {
-            String adminUid = "qCV4rvNowyYtSknFnwPCwAVdksq1";
+
             String userEmail = mAuth.getCurrentUser().getUid();
-            if(!(userEmail.equals(adminUid))){
+            if(!(userEmail.equals(admin1)) || !(userEmail.equals(admin2))){
                 Toast.makeText(getApplicationContext(),"You don't have permission to this page...",Toast.LENGTH_LONG).show();
                 return true;
             }
             Intent intent = new Intent(getApplicationContext(), Add_Advocate.class);
             startActivity(intent);
         } else if(id == R.id.nav_removeAdvocate) {
-            String adminUid = "qCV4rvNowyYtSknFnwPCwAVdksq1";
+
             String userEmail = mAuth.getCurrentUser().getUid();
-            if(!(userEmail.equals(adminUid))){
+            if(!(userEmail.equals(admin1)) || !(userEmail.equals(admin2))){
                 Toast.makeText(getApplicationContext(),"You don't have permission to this page...",Toast.LENGTH_LONG).show();
                 return true;
             }

@@ -1,6 +1,7 @@
 package com.example.casehearing;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
@@ -10,6 +11,7 @@ import java.util.Calendar;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -52,6 +54,13 @@ public class Add_Hearing extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_hearing);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Add Hearings");
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+
+        }
 
         case_id = findViewById(R.id.case_id);
         doA = findViewById(R.id.doa);
@@ -266,5 +275,14 @@ public void addHearing() {
         }catch (Exception e){}
 
 }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }

@@ -2,6 +2,7 @@ package com.example.casehearing;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -38,8 +39,11 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.File;
@@ -70,7 +74,15 @@ public class View_Hearing extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_hearing);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("View Hearings");
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+
+        }
+
         hearings = findViewById(R.id.hearings);
+        hearings.setVisibility(View.GONE);
         progressDialog = new ProgressDialog(this);
         search = findViewById(R.id.search);
         search_text = findViewById(R.id.search_text);
@@ -522,12 +534,13 @@ public class View_Hearing extends AppCompatActivity {
                 } catch (DocumentException e) {
                     Toast.makeText(getApplicationContext(),"Document Exception",Toast.LENGTH_LONG).show();
                     e.printStackTrace();
-                }
+                } return true;
+
+            case android.R.id.home:
+                finish();
                 return true;
         }
-
-                return true;
-
+        return super.onOptionsItemSelected(item);
     }
     private void createPdf() throws FileNotFoundException, DocumentException {
 
@@ -546,6 +559,25 @@ public class View_Hearing extends AppCompatActivity {
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document, new FileOutputStream(file.getAbsoluteFile()));
         document.open();
+
+        /*PdfPTable table = new PdfPTable(new float[]{1,2,2,2,3,3,2,3,2});
+        table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.getDefaultCell().setFixedHeight(50);
+        table.setTotalWidth(PageSize.A4.getWidth());
+        table.setWidthPercentage(100);
+        table.getDefaultCell().setVerticalAlignment(Element.ALIGN_MIDDLE);
+        table.addCell("S.No");
+        table.addCell("D.O.A");
+        table.addCell("Case Type");
+        table.addCell("Case ID");
+        table.addCell("Advocate Name");
+        table.addCell("Case Title");
+        table.addCell("N.D.H");
+        table.addCell("Purpose");
+        table.addCell("Lasr Updated");
+        table.setHeaderRows(1);*/
+
+
         document.add(new Paragraph(hearings.getText().toString()));
         Toast.makeText(getApplicationContext(),"PDF Downloaded",Toast.LENGTH_LONG).show();
         document.close();
@@ -668,6 +700,7 @@ public class View_Hearing extends AppCompatActivity {
                 tt.addView(Heading,0);
 
                 int serial_no = 1;
+                String allHearings = "";
 
                 for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots)
                 {
@@ -747,8 +780,12 @@ public class View_Hearing extends AppCompatActivity {
                     row.addView(lastUpdated);
                     tt.addView(row,serial_no);
 
+                    allHearings+= "\n\n\nS.No : " +serial_no +"\nDate Of Assignment : " +blankString +"\nCase Type : " +case_type +"\nCase ID : " +case_id + "\nAdvocate Name : " +advocate_name +"\nCase Title : " +case_title +"\nN.D.H : " +ndh +"\nPurpose : " +purpose +"\nLast Updated : " +last_updated;
+
                     serial_no++;
+
                 }
+                hearings.setText(allHearings);
 
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -759,5 +796,7 @@ public class View_Hearing extends AppCompatActivity {
             }
         });
     }
+
+
 
 }
