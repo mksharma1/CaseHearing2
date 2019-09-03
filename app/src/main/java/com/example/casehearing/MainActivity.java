@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         String userEmail = mAuth.getCurrentUser().getEmail();
-        if(userEmail.equals(admin1) || userEmail.equals(admin2)){
+        if(userEmail.equalsIgnoreCase(admin1) || userEmail.equalsIgnoreCase(admin2)){
             add_advocate.setVisibility(View.VISIBLE);
             remove_advocate.setVisibility(View.VISIBLE);
 
@@ -174,22 +174,25 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_addAdvocate) {
 
-            String userEmail = mAuth.getCurrentUser().getUid();
-            if(!(userEmail.equals(admin1)) || !(userEmail.equals(admin2))){
+            String userEmail = mAuth.getCurrentUser().getEmail();
+            if(userEmail.equalsIgnoreCase(admin1) || userEmail.equalsIgnoreCase(admin2)){
+                Intent intent = new Intent(getApplicationContext(), Add_Advocate.class);
+                startActivity(intent);
+            } else {
                 Toast.makeText(getApplicationContext(),"You don't have permission to this page...",Toast.LENGTH_LONG).show();
                 return true;
             }
-            Intent intent = new Intent(getApplicationContext(), Add_Advocate.class);
-            startActivity(intent);
+
         } else if(id == R.id.nav_removeAdvocate) {
 
-            String userEmail = mAuth.getCurrentUser().getUid();
-            if(!(userEmail.equals(admin1)) || !(userEmail.equals(admin2))){
+            String userEmail = mAuth.getCurrentUser().getEmail();
+            if(userEmail.equals(admin1) || userEmail.equals(admin2)){
+                Intent intent = new Intent(getApplicationContext(), RemoveAdvocate.class);
+                startActivity(intent);
+            }else {
                 Toast.makeText(getApplicationContext(),"You don't have permission to this page...",Toast.LENGTH_LONG).show();
                 return true;
             }
-            Intent intent = new Intent(getApplicationContext(), RemoveAdvocate.class);
-            startActivity(intent);
         }
         else if (id == R.id.nav_about){
             Intent intent = new Intent(getApplicationContext(), About_app.class);
