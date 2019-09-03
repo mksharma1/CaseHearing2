@@ -6,18 +6,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
+            android:icon="@drawable/homepage"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_addHearing"
+            android:icon="@drawable/mace"
             android:title="@string/menu_addHearing" />
         <item
             android:id="@+id/nav_viewHearing"
+            android:icon="@drawable/law"
             android:title="@string/menu_viewHearing" />
         <item
             android:id="@+id/nav_addAdvocate"
+            android:icon="@drawable/plus"
             android:title="@string/menu_addAdvocate" />
         <item
             android:id="@+id/nav_removeAdvocate"
+            android:icon="@drawable/delete"
             android:title="Remove Advocate" />
     </group>
 
@@ -26,9 +31,11 @@
         <menu>
             <item
                 android:id="@+id/nav_about"
+                android:icon="@drawable/info"
                 android:title="@string/about" />
             <item
                 android:id="@+id/nav_logout"
+                android:icon="@drawable/power"
                 android:title="Logout" />
 
         </menu>
@@ -37,6 +44,7 @@
         <menu>
             <item
                 android:id="@+id/nav_developer"
+                android:icon="@drawable/programmer"
                 android:title="App Developers" />
 
         </menu>
