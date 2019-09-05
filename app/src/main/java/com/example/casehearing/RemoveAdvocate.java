@@ -179,15 +179,21 @@ public class RemoveAdvocate extends AppCompatActivity implements View.OnClickLis
            @Override
            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                progressDialog.cancel();
+               int FLAG =0;
 
                for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
                    DB_Advocates db_advocates = documentSnapshot.toObject(DB_Advocates.class);
                    String advocate = db_advocates.getAdvocate();
                    if(advocate.equals(advocateName)){
                        Advocates.document(documentSnapshot.getId()).delete();
+                       FLAG = 1;
                    }
                }
-               Toast.makeText(getApplicationContext(),"Advocate removed succesfully...",Toast.LENGTH_LONG).show();
+               if(FLAG == 1){
+                   Toast.makeText(getApplicationContext(),"Advocate removed succesfully...",Toast.LENGTH_LONG).show();
+               } else {
+                   Toast.makeText(getApplicationContext(),"Advocate does not exists...",Toast.LENGTH_LONG).show();
+               }
            }
        }).addOnFailureListener(new OnFailureListener() {
            @Override
