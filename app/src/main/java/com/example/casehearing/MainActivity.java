@@ -131,26 +131,31 @@ public class MainActivity extends AppCompatActivity
         builder = new AlertDialog.Builder(this);
 
         if(mAuth.getCurrentUser()==null){
-            finish();
-            Intent i = new Intent(getApplicationContext(),Login.class);
-            startActivity(i);
-        }
-
-        String userEmail = mAuth.getCurrentUser().getEmail();
-        if(userEmail.equalsIgnoreCase(admin1) || userEmail.equalsIgnoreCase(admin2)){
-            add_advocate.setVisibility(View.VISIBLE);
-            remove_advocate.setVisibility(View.VISIBLE);
-            userHearings.setVisibility(View.GONE);
-        }else if(userEmail.equalsIgnoreCase(adv1) || userEmail.equalsIgnoreCase(adv2) || userEmail.equalsIgnoreCase(adv3) || userEmail.equalsIgnoreCase(adv4) || userEmail.equalsIgnoreCase(adv5) || userEmail.equalsIgnoreCase(adv6) || userEmail.equalsIgnoreCase(adv7) || userEmail.equalsIgnoreCase(adv8) || userEmail.equalsIgnoreCase(adv9) || userEmail.equalsIgnoreCase(adv10) || userEmail.equalsIgnoreCase(adv11) || userEmail.equalsIgnoreCase(adv12) || userEmail.equalsIgnoreCase(adv13) || userEmail.equalsIgnoreCase(adv14) || userEmail.equalsIgnoreCase(adv15) || userEmail.equalsIgnoreCase(adv16) || userEmail.equalsIgnoreCase(adv17) || userEmail.equalsIgnoreCase(adv18) || userEmail.equalsIgnoreCase(adv19) || userEmail.equalsIgnoreCase(adv20) || userEmail.equalsIgnoreCase(adv21) || userEmail.equalsIgnoreCase(adv22) || userEmail.equalsIgnoreCase(adv23) || userEmail.equalsIgnoreCase(adv24) || userEmail.equalsIgnoreCase(adv25) || userEmail.equalsIgnoreCase(adv26) || userEmail.equalsIgnoreCase(adv27) || userEmail.equalsIgnoreCase(adv28) || userEmail.equalsIgnoreCase(adv29) || userEmail.equalsIgnoreCase(adv30) || userEmail.equalsIgnoreCase(adv31) || userEmail.equalsIgnoreCase(adv32) || userEmail.equalsIgnoreCase(adv33) || userEmail.equalsIgnoreCase(adv34) || userEmail.equalsIgnoreCase(adv35) || userEmail.equalsIgnoreCase(adv36) || userEmail.equalsIgnoreCase(adv37) || userEmail.equalsIgnoreCase(adv38) || userEmail.equalsIgnoreCase(adv39) || userEmail.equalsIgnoreCase(adv40) || userEmail.equalsIgnoreCase(adv41) || userEmail.equalsIgnoreCase(adv42) || userEmail.equalsIgnoreCase(adv43) || userEmail.equalsIgnoreCase(adv44) || userEmail.equalsIgnoreCase(adv45) || userEmail.equalsIgnoreCase(adv46) || userEmail.equalsIgnoreCase(adv47) || userEmail.equalsIgnoreCase(adv48)){
-            add_advocate.setVisibility(View.GONE);
-            remove_advocate.setVisibility(View.GONE);
-            userHearings.setVisibility(View.GONE);
-        }else {
             add_hearing.setVisibility(View.GONE);
             view_hearing.setVisibility(View.GONE);
             add_advocate.setVisibility(View.GONE);
             remove_advocate.setVisibility(View.GONE);
             userHearings.setVisibility(View.VISIBLE);
+        }
+
+        if(mAuth.getCurrentUser()!=null) {
+            String userEmail = mAuth.getCurrentUser().getEmail();
+
+            if (userEmail.equalsIgnoreCase(admin1) || userEmail.equalsIgnoreCase(admin2)) {
+                add_advocate.setVisibility(View.VISIBLE);
+                remove_advocate.setVisibility(View.VISIBLE);
+                userHearings.setVisibility(View.GONE);
+            } else if (userEmail.equalsIgnoreCase(adv1) || userEmail.equalsIgnoreCase(adv2) || userEmail.equalsIgnoreCase(adv3) || userEmail.equalsIgnoreCase(adv4) || userEmail.equalsIgnoreCase(adv5) || userEmail.equalsIgnoreCase(adv6) || userEmail.equalsIgnoreCase(adv7) || userEmail.equalsIgnoreCase(adv8) || userEmail.equalsIgnoreCase(adv9) || userEmail.equalsIgnoreCase(adv10) || userEmail.equalsIgnoreCase(adv11) || userEmail.equalsIgnoreCase(adv12) || userEmail.equalsIgnoreCase(adv13) || userEmail.equalsIgnoreCase(adv14) || userEmail.equalsIgnoreCase(adv15) || userEmail.equalsIgnoreCase(adv16) || userEmail.equalsIgnoreCase(adv17) || userEmail.equalsIgnoreCase(adv18) || userEmail.equalsIgnoreCase(adv19) || userEmail.equalsIgnoreCase(adv20) || userEmail.equalsIgnoreCase(adv21) || userEmail.equalsIgnoreCase(adv22) || userEmail.equalsIgnoreCase(adv23) || userEmail.equalsIgnoreCase(adv24) || userEmail.equalsIgnoreCase(adv25) || userEmail.equalsIgnoreCase(adv26) || userEmail.equalsIgnoreCase(adv27) || userEmail.equalsIgnoreCase(adv28) || userEmail.equalsIgnoreCase(adv29) || userEmail.equalsIgnoreCase(adv30) || userEmail.equalsIgnoreCase(adv31) || userEmail.equalsIgnoreCase(adv32) || userEmail.equalsIgnoreCase(adv33) || userEmail.equalsIgnoreCase(adv34) || userEmail.equalsIgnoreCase(adv35) || userEmail.equalsIgnoreCase(adv36) || userEmail.equalsIgnoreCase(adv37) || userEmail.equalsIgnoreCase(adv38) || userEmail.equalsIgnoreCase(adv39) || userEmail.equalsIgnoreCase(adv40) || userEmail.equalsIgnoreCase(adv41) || userEmail.equalsIgnoreCase(adv42) || userEmail.equalsIgnoreCase(adv43) || userEmail.equalsIgnoreCase(adv44) || userEmail.equalsIgnoreCase(adv45) || userEmail.equalsIgnoreCase(adv46) || userEmail.equalsIgnoreCase(adv47) || userEmail.equalsIgnoreCase(adv48)) {
+                add_advocate.setVisibility(View.GONE);
+                remove_advocate.setVisibility(View.GONE);
+                userHearings.setVisibility(View.GONE);
+            } else {
+                add_hearing.setVisibility(View.GONE);
+                view_hearing.setVisibility(View.GONE);
+                add_advocate.setVisibility(View.GONE);
+                remove_advocate.setVisibility(View.GONE);
+                userHearings.setVisibility(View.VISIBLE);
+            }
         }
 
     }
@@ -222,77 +227,109 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_addHearing) {
-            String userEmail = mAuth.getCurrentUser().getEmail();
-            if(userEmail.equalsIgnoreCase(admin1) || userEmail.equalsIgnoreCase(admin2)|| userEmail.equalsIgnoreCase(adv1) || userEmail.equalsIgnoreCase(adv2) || userEmail.equalsIgnoreCase(adv3) || userEmail.equalsIgnoreCase(adv4) || userEmail.equalsIgnoreCase(adv5) || userEmail.equalsIgnoreCase(adv6) || userEmail.equalsIgnoreCase(adv7) || userEmail.equalsIgnoreCase(adv8) || userEmail.equalsIgnoreCase(adv9) || userEmail.equalsIgnoreCase(adv10) || userEmail.equalsIgnoreCase(adv11) || userEmail.equalsIgnoreCase(adv12) || userEmail.equalsIgnoreCase(adv13) || userEmail.equalsIgnoreCase(adv14) || userEmail.equalsIgnoreCase(adv15) || userEmail.equalsIgnoreCase(adv16) || userEmail.equalsIgnoreCase(adv17) || userEmail.equalsIgnoreCase(adv18) || userEmail.equalsIgnoreCase(adv19) || userEmail.equalsIgnoreCase(adv20) || userEmail.equalsIgnoreCase(adv21) || userEmail.equalsIgnoreCase(adv22) || userEmail.equalsIgnoreCase(adv23) || userEmail.equalsIgnoreCase(adv24) || userEmail.equalsIgnoreCase(adv25) || userEmail.equalsIgnoreCase(adv26) || userEmail.equalsIgnoreCase(adv27) || userEmail.equalsIgnoreCase(adv28) || userEmail.equalsIgnoreCase(adv29) || userEmail.equalsIgnoreCase(adv30) || userEmail.equalsIgnoreCase(adv31) || userEmail.equalsIgnoreCase(adv32) || userEmail.equalsIgnoreCase(adv33) || userEmail.equalsIgnoreCase(adv34) || userEmail.equalsIgnoreCase(adv35) || userEmail.equalsIgnoreCase(adv36) || userEmail.equalsIgnoreCase(adv37) || userEmail.equalsIgnoreCase(adv38) || userEmail.equalsIgnoreCase(adv39) || userEmail.equalsIgnoreCase(adv40) || userEmail.equalsIgnoreCase(adv41) || userEmail.equalsIgnoreCase(adv42) || userEmail.equalsIgnoreCase(adv43) || userEmail.equalsIgnoreCase(adv44) || userEmail.equalsIgnoreCase(adv45) || userEmail.equalsIgnoreCase(adv46) || userEmail.equalsIgnoreCase(adv47) || userEmail.equalsIgnoreCase(adv48)) {
-                Intent intent = new Intent(getApplicationContext(),Add_Hearing.class);
-                startActivity(intent);
+            if(mAuth.getCurrentUser()!=null){
+                String userEmail = mAuth.getCurrentUser().getEmail();
+                if(userEmail.equalsIgnoreCase(admin1) || userEmail.equalsIgnoreCase(admin2)|| userEmail.equalsIgnoreCase(adv1) || userEmail.equalsIgnoreCase(adv2) || userEmail.equalsIgnoreCase(adv3) || userEmail.equalsIgnoreCase(adv4) || userEmail.equalsIgnoreCase(adv5) || userEmail.equalsIgnoreCase(adv6) || userEmail.equalsIgnoreCase(adv7) || userEmail.equalsIgnoreCase(adv8) || userEmail.equalsIgnoreCase(adv9) || userEmail.equalsIgnoreCase(adv10) || userEmail.equalsIgnoreCase(adv11) || userEmail.equalsIgnoreCase(adv12) || userEmail.equalsIgnoreCase(adv13) || userEmail.equalsIgnoreCase(adv14) || userEmail.equalsIgnoreCase(adv15) || userEmail.equalsIgnoreCase(adv16) || userEmail.equalsIgnoreCase(adv17) || userEmail.equalsIgnoreCase(adv18) || userEmail.equalsIgnoreCase(adv19) || userEmail.equalsIgnoreCase(adv20) || userEmail.equalsIgnoreCase(adv21) || userEmail.equalsIgnoreCase(adv22) || userEmail.equalsIgnoreCase(adv23) || userEmail.equalsIgnoreCase(adv24) || userEmail.equalsIgnoreCase(adv25) || userEmail.equalsIgnoreCase(adv26) || userEmail.equalsIgnoreCase(adv27) || userEmail.equalsIgnoreCase(adv28) || userEmail.equalsIgnoreCase(adv29) || userEmail.equalsIgnoreCase(adv30) || userEmail.equalsIgnoreCase(adv31) || userEmail.equalsIgnoreCase(adv32) || userEmail.equalsIgnoreCase(adv33) || userEmail.equalsIgnoreCase(adv34) || userEmail.equalsIgnoreCase(adv35) || userEmail.equalsIgnoreCase(adv36) || userEmail.equalsIgnoreCase(adv37) || userEmail.equalsIgnoreCase(adv38) || userEmail.equalsIgnoreCase(adv39) || userEmail.equalsIgnoreCase(adv40) || userEmail.equalsIgnoreCase(adv41) || userEmail.equalsIgnoreCase(adv42) || userEmail.equalsIgnoreCase(adv43) || userEmail.equalsIgnoreCase(adv44) || userEmail.equalsIgnoreCase(adv45) || userEmail.equalsIgnoreCase(adv46) || userEmail.equalsIgnoreCase(adv47) || userEmail.equalsIgnoreCase(adv48)) {
+                    Intent intent = new Intent(getApplicationContext(),Add_Hearing.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(),"You don't have permission to this page...",Toast.LENGTH_LONG).show();
+                    return true;
+                }
             } else {
-                Toast.makeText(getApplicationContext(),"You don't have permission to this page...",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Please Login to continue...",Toast.LENGTH_LONG).show();
                 return true;
             }
 
+
         } else if (id == R.id.nav_viewHearing) {
-            String userEmail = mAuth.getCurrentUser().getEmail();
-            if(userEmail.equalsIgnoreCase(admin1) || userEmail.equalsIgnoreCase(admin2)|| userEmail.equalsIgnoreCase(adv1) || userEmail.equalsIgnoreCase(adv2) || userEmail.equalsIgnoreCase(adv3) || userEmail.equalsIgnoreCase(adv4) || userEmail.equalsIgnoreCase(adv5) || userEmail.equalsIgnoreCase(adv6) || userEmail.equalsIgnoreCase(adv7) || userEmail.equalsIgnoreCase(adv8) || userEmail.equalsIgnoreCase(adv9) || userEmail.equalsIgnoreCase(adv10) || userEmail.equalsIgnoreCase(adv11) || userEmail.equalsIgnoreCase(adv12) || userEmail.equalsIgnoreCase(adv13) || userEmail.equalsIgnoreCase(adv14) || userEmail.equalsIgnoreCase(adv15) || userEmail.equalsIgnoreCase(adv16) || userEmail.equalsIgnoreCase(adv17) || userEmail.equalsIgnoreCase(adv18) || userEmail.equalsIgnoreCase(adv19) || userEmail.equalsIgnoreCase(adv20) || userEmail.equalsIgnoreCase(adv21) || userEmail.equalsIgnoreCase(adv22) || userEmail.equalsIgnoreCase(adv23) || userEmail.equalsIgnoreCase(adv24) || userEmail.equalsIgnoreCase(adv25) || userEmail.equalsIgnoreCase(adv26) || userEmail.equalsIgnoreCase(adv27) || userEmail.equalsIgnoreCase(adv28) || userEmail.equalsIgnoreCase(adv29) || userEmail.equalsIgnoreCase(adv30) || userEmail.equalsIgnoreCase(adv31) || userEmail.equalsIgnoreCase(adv32) || userEmail.equalsIgnoreCase(adv33) || userEmail.equalsIgnoreCase(adv34) || userEmail.equalsIgnoreCase(adv35) || userEmail.equalsIgnoreCase(adv36) || userEmail.equalsIgnoreCase(adv37) || userEmail.equalsIgnoreCase(adv38) || userEmail.equalsIgnoreCase(adv39) || userEmail.equalsIgnoreCase(adv40) || userEmail.equalsIgnoreCase(adv41) || userEmail.equalsIgnoreCase(adv42) || userEmail.equalsIgnoreCase(adv43) || userEmail.equalsIgnoreCase(adv44) || userEmail.equalsIgnoreCase(adv45) || userEmail.equalsIgnoreCase(adv46) || userEmail.equalsIgnoreCase(adv47) || userEmail.equalsIgnoreCase(adv48)){
-                Intent intent = new Intent(getApplicationContext(),View_Hearing.class);
-                startActivity(intent);
+            if(mAuth.getCurrentUser()!=null){
+                String userEmail = mAuth.getCurrentUser().getEmail();
+                if(userEmail.equalsIgnoreCase(admin1) || userEmail.equalsIgnoreCase(admin2)|| userEmail.equalsIgnoreCase(adv1) || userEmail.equalsIgnoreCase(adv2) || userEmail.equalsIgnoreCase(adv3) || userEmail.equalsIgnoreCase(adv4) || userEmail.equalsIgnoreCase(adv5) || userEmail.equalsIgnoreCase(adv6) || userEmail.equalsIgnoreCase(adv7) || userEmail.equalsIgnoreCase(adv8) || userEmail.equalsIgnoreCase(adv9) || userEmail.equalsIgnoreCase(adv10) || userEmail.equalsIgnoreCase(adv11) || userEmail.equalsIgnoreCase(adv12) || userEmail.equalsIgnoreCase(adv13) || userEmail.equalsIgnoreCase(adv14) || userEmail.equalsIgnoreCase(adv15) || userEmail.equalsIgnoreCase(adv16) || userEmail.equalsIgnoreCase(adv17) || userEmail.equalsIgnoreCase(adv18) || userEmail.equalsIgnoreCase(adv19) || userEmail.equalsIgnoreCase(adv20) || userEmail.equalsIgnoreCase(adv21) || userEmail.equalsIgnoreCase(adv22) || userEmail.equalsIgnoreCase(adv23) || userEmail.equalsIgnoreCase(adv24) || userEmail.equalsIgnoreCase(adv25) || userEmail.equalsIgnoreCase(adv26) || userEmail.equalsIgnoreCase(adv27) || userEmail.equalsIgnoreCase(adv28) || userEmail.equalsIgnoreCase(adv29) || userEmail.equalsIgnoreCase(adv30) || userEmail.equalsIgnoreCase(adv31) || userEmail.equalsIgnoreCase(adv32) || userEmail.equalsIgnoreCase(adv33) || userEmail.equalsIgnoreCase(adv34) || userEmail.equalsIgnoreCase(adv35) || userEmail.equalsIgnoreCase(adv36) || userEmail.equalsIgnoreCase(adv37) || userEmail.equalsIgnoreCase(adv38) || userEmail.equalsIgnoreCase(adv39) || userEmail.equalsIgnoreCase(adv40) || userEmail.equalsIgnoreCase(adv41) || userEmail.equalsIgnoreCase(adv42) || userEmail.equalsIgnoreCase(adv43) || userEmail.equalsIgnoreCase(adv44) || userEmail.equalsIgnoreCase(adv45) || userEmail.equalsIgnoreCase(adv46) || userEmail.equalsIgnoreCase(adv47) || userEmail.equalsIgnoreCase(adv48)){
+                    Intent intent = new Intent(getApplicationContext(),View_Hearing.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(getApplicationContext(),UserHearings.class);
+                    startActivity(intent);
+                }
             } else {
                 Intent intent = new Intent(getApplicationContext(),UserHearings.class);
                 startActivity(intent);
             }
 
 
-        } else if (id == R.id.nav_addAdvocate) {
 
-            String userEmail = mAuth.getCurrentUser().getEmail();
-            if(userEmail.equalsIgnoreCase(admin1) || userEmail.equalsIgnoreCase(admin2)){
-                Intent intent = new Intent(getApplicationContext(), Add_Advocate.class);
-                startActivity(intent);
+        } else if (id == R.id.nav_addAdvocate) {
+            if(mAuth.getCurrentUser()!=null){
+                String userEmail = mAuth.getCurrentUser().getEmail();
+                if(userEmail.equalsIgnoreCase(admin1) || userEmail.equalsIgnoreCase(admin2)){
+                    Intent intent = new Intent(getApplicationContext(), Add_Advocate.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(),"You don't have permission to this page...",Toast.LENGTH_LONG).show();
+                    return true;
+                }
             } else {
-                Toast.makeText(getApplicationContext(),"You don't have permission to this page...",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Please Login to continue...",Toast.LENGTH_LONG).show();
                 return true;
             }
+
 
         } else if(id == R.id.nav_removeAdvocate) {
-
-            String userEmail = mAuth.getCurrentUser().getEmail()  ;
-            if(userEmail.equals(admin1) || userEmail.equals(admin2)){
-                Intent intent = new Intent(getApplicationContext(), RemoveAdvocate.class);
-                startActivity(intent);
-            }else {
-                Toast.makeText(getApplicationContext(),"You don't have permission to this page...",Toast.LENGTH_LONG).show();
+            if(mAuth.getCurrentUser()!=null){
+                String userEmail = mAuth.getCurrentUser().getEmail()  ;
+                if(userEmail.equals(admin1) || userEmail.equals(admin2)){
+                    Intent intent = new Intent(getApplicationContext(), RemoveAdvocate.class);
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(getApplicationContext(),"You don't have permission to this page...",Toast.LENGTH_LONG).show();
+                    return true;
+                }
+            } else {
+                Toast.makeText(getApplicationContext(),"Please Login to continue...",Toast.LENGTH_LONG).show();
                 return true;
             }
+
+
+
         } else if (id == R.id.nav_about){
             Intent intent = new Intent(getApplicationContext(), About_app.class);
             startActivity(intent);
 
+
         } else if (id == R.id.nav_logout){
-            builder.setMessage("Do You Want to Logout?");
-            builder.setTitle("Alert");
-            builder.setCancelable(false);
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    mAuth.signOut();
-                    finish();
-                    Intent intent = new Intent(getApplicationContext(),Login.class);
-                    startActivity(intent);
-                }
-            });
-            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.cancel();
-                }
-            });
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
+            if(mAuth.getCurrentUser()!=null){
+                builder.setMessage("Do You Want to Logout?");
+                builder.setTitle("Alert");
+                builder.setCancelable(false);
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        mAuth.signOut();
+                        finish();
+                        Intent intent = new Intent(getApplicationContext(),Login.class);
+                        startActivity(intent);
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            } else {
+                Toast.makeText(getApplicationContext(),"You are already logged off...",Toast.LENGTH_LONG).show();
+                return true;
+            }
 
         } else if (id == R.id.nav_developer){
             Intent i = new Intent(getApplicationContext(),AboutDev.class);
             startActivity(i);
         }
+
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

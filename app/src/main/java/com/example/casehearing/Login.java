@@ -22,7 +22,7 @@ import android.widget.Toast;
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
     EditText mail,password;
-    Button login;
+    Button login,skipLogin;
     TextView signupText,forgetPassword;
     private ProgressDialog progressDialog;
     FirebaseAuth mAuth;
@@ -38,11 +38,13 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         signupText = findViewById(R.id.signupText);
         forgetPassword = findViewById(R.id.forget_password);
         progressDialog = new ProgressDialog(this);
+        skipLogin = findViewById(R.id.skipLogin);
         mAuth = FirebaseAuth.getInstance();
 
         login.setOnClickListener(this);
         signupText.setOnClickListener(this);
         forgetPassword.setOnClickListener(this);
+        skipLogin.setOnClickListener(this);
 
         if(mAuth.getCurrentUser()!=null)
         {
@@ -126,6 +128,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         if (view == forgetPassword){
           Intent i = new Intent(getApplicationContext(),ResetPassword.class);
           startActivity(i);
+        }
+
+        if(view == skipLogin){
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
         }
 
     }

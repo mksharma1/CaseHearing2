@@ -21,7 +21,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="50dp"
                 android:scaleType="fitCenter"
                 android:src="@mipmap/app_icon" />
 
@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="40dp"
                 android:text="Login"
                 android:textColor="@color/white"
                 android:textSize="40dp" />
@@ -92,16 +92,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:text="Create New Account"
                     android:textColor="@color/white"
                     android:textSize="20dp" />
 
+
             </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="OR"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+
+            <Button
+                android:id="@+id/skipLogin"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/login_button_shape"
+                android:gravity="center"
+                android:text="Continue without login"
+                android:textStyle="bold"
+                android:textColor="@color/startcolor" />
 
         </LinearLayout>
 
     </ScrollView>
+
+
 
 
 </RelativeLayout>
