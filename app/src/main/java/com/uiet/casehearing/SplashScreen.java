@@ -1,4 +1,4 @@
-package com.example.casehearing;
+package com.uiet.casehearing;
 
 import androidx.appcompat.app.AppCompatActivity;
 

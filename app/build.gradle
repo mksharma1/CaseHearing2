@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.1"
     defaultConfig {
         multiDexEnabled true
-        applicationId "com.example.casehearing"
+        applicationId "com.uiet.casehearing"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
