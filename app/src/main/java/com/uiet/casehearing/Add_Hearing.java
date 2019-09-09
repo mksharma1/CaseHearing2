@@ -222,7 +222,7 @@ public void addHearing() {
 
             Calendar cal = Calendar.getInstance();
             Date date = cal.getTime();
-            DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss a");
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss a");
             String last_updated = dateFormat.format(date);
 
     if(!(radioButton.isChecked()))

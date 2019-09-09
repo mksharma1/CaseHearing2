@@ -269,21 +269,27 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if(id == R.id.nav_removeAdvocate) {
-            if(mAuth.getCurrentUser()!=null){
-                String userEmail = mAuth.getCurrentUser().getEmail()  ;
-                if(userEmail.equals(admin1) || userEmail.equals(admin2)){
+            if (mAuth.getCurrentUser() != null) {
+                String userEmail = mAuth.getCurrentUser().getEmail();
+                if (userEmail.equals(admin1) || userEmail.equals(admin2)) {
                     Intent intent = new Intent(getApplicationContext(), RemoveAdvocate.class);
                     startActivity(intent);
-                }else {
-                    Toast.makeText(getApplicationContext(),"You don't have permission to this page...",Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "You don't have permission to this page...", Toast.LENGTH_LONG).show();
                     return true;
                 }
             } else {
-                Toast.makeText(getApplicationContext(),"Please Login to continue...",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Please Login to continue...", Toast.LENGTH_LONG).show();
                 return true;
             }
 
-
+        }else if(id == R.id.nav_share){
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT,
+                    "Download the DLSA KRK App and access all your case hearings online : https://play.google.com/store/apps/details?id=com.uiet.casehearing");
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
 
         } else if (id == R.id.nav_about){
             Intent intent = new Intent(getApplicationContext(), About_app.class);

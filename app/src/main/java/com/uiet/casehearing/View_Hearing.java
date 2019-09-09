@@ -124,63 +124,63 @@ public class View_Hearing extends AppCompatActivity {
                             TextView PurposeHeading = new TextView(getApplicationContext());
                             TextView lastUpdatedHeading = new TextView(getApplicationContext());
 
-                            serialHeading.setText("S.No");
+                            serialHeading.setText(" S.No ");
                             serialHeading.setTypeface(null, Typeface.BOLD);
                             serialHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             serialHeading.setTextColor(Color.WHITE);
                             serialHeading.setTextSize(20);
                             serialHeading.setPadding(8,2,8,2);
 
-                            DoA.setText("Date of Assignment by DLSA");
+                            DoA.setText(" Date of Assignment by DLSA ");
                             DoA.setTypeface(null, Typeface.BOLD);
                             DoA.setBackgroundResource(R.drawable.table_heading_shape);
                             DoA.setTextColor(Color.WHITE);
                             DoA.setTextSize(20);
                             DoA.setPadding(8,2,8,2);
 
-                            caseTypeHeading.setText("Case Type");
+                            caseTypeHeading.setText(" Case Type ");
                             caseTypeHeading.setTypeface(null, Typeface.BOLD);
                             caseTypeHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             caseTypeHeading.setTextColor(Color.WHITE);
                             caseTypeHeading.setTextSize(20);
                             caseTypeHeading.setPadding(8,2,8,2);
 
-                            caseIdHeading.setText("Case Id");
+                            caseIdHeading.setText(" Case Id ");
                             caseIdHeading.setTextColor(Color.WHITE);
                             caseIdHeading.setTypeface(null, Typeface.BOLD);
                             caseIdHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             caseIdHeading.setTextSize(20);
                             caseIdHeading.setPadding(8,2,8,2);
 
-                            advocateNameHeading.setText("Advocate Name");
+                            advocateNameHeading.setText(" Advocate Name ");
                             advocateNameHeading.setTypeface(null, Typeface.BOLD);
                             advocateNameHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             advocateNameHeading.setTextSize(20);
                             advocateNameHeading.setPadding(8,2,8,2);
                             advocateNameHeading.setTextColor(Color.WHITE);
 
-                            caseTitleHeading.setText("Case Title");
+                            caseTitleHeading.setText(" Case Title ");
                             caseTitleHeading.setTypeface(null, Typeface.BOLD);
                             caseTitleHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             caseTitleHeading.setTextSize(20);
                             caseTitleHeading.setPadding(8,2,8,2);
                             caseTitleHeading.setTextColor(Color.WHITE);
 
-                            NdhHeading.setText("NDH");
+                            NdhHeading.setText(" NDH ");
                             NdhHeading.setTypeface(null, Typeface.BOLD);
                             NdhHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             NdhHeading.setTextSize(20);
                             NdhHeading.setPadding(8,2,8,2);
                             NdhHeading.setTextColor(Color.WHITE);
 
-                            PurposeHeading.setText("Purpose");
+                            PurposeHeading.setText(" Purpose ");
                             PurposeHeading.setTypeface(null, Typeface.BOLD);
                             PurposeHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             PurposeHeading.setTextSize(20);
                             PurposeHeading.setPadding(8,2,8,2);
                             PurposeHeading.setTextColor(Color.WHITE);
 
-                            lastUpdatedHeading.setText("Last Updated");
+                            lastUpdatedHeading.setText(" Last Updated ");
                             lastUpdatedHeading.setTypeface(null, Typeface.BOLD);
                             lastUpdatedHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             lastUpdatedHeading.setTextSize(20);
@@ -214,15 +214,15 @@ public class View_Hearing extends AppCompatActivity {
                             {
 
                                 DB_CaseHearing db_caseHearing = documentSnapshot.toObject(DB_CaseHearing.class);
-                                String no = Integer.toString(serial_no);
-                                String blankString = db_caseHearing.getDoa();
-                                String case_type = db_caseHearing.getCase_type();
-                                String case_id = db_caseHearing.getCase_id();
-                                String advocate_name = db_caseHearing.getAdvocate_name();
-                                String  case_title = db_caseHearing.getCase_title();
-                                String ndh = db_caseHearing.getNdh();
-                                String purpose = db_caseHearing.getPurpose();
-                                String last_updated = db_caseHearing.getLast_updated();
+                                String no = " " + Integer.toString(serial_no) + " ";
+                                String blankString = " " + db_caseHearing.getDoa() + " ";
+                                String case_type = " " + db_caseHearing.getCase_type() + " ";
+                                String case_id = " " + db_caseHearing.getCase_id() + " ";
+                                String advocate_name =" " +  db_caseHearing.getAdvocate_name() + " ";
+                                String  case_title =" "+ db_caseHearing.getCase_title() +" ";
+                                String ndh = " " +db_caseHearing.getNdh()+ " ";
+                                String purpose = " " +db_caseHearing.getPurpose() +" ";
+                                String last_updated =" " + db_caseHearing.getLast_updated() + " ";
 
                                 TextView serial = new TextView(getApplicationContext());
                                 TextView doA = new TextView(getApplicationContext());
@@ -323,63 +323,63 @@ public class View_Hearing extends AppCompatActivity {
                             TextView PurposeHeading = new TextView(getApplicationContext());
                             TextView lastUpdatedHeading = new TextView(getApplicationContext());
 
-                            serialHeading.setText("S.No");
+                            serialHeading.setText(" S.No ");
                             serialHeading.setTypeface(null, Typeface.BOLD);
                             serialHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             serialHeading.setTextColor(Color.WHITE);
                             serialHeading.setTextSize(20);
                             serialHeading.setPadding(8,2,8,2);
 
-                            DoA.setText("Date of Assignment");
+                            DoA.setText(" Date of Assignment ");
                             DoA.setTypeface(null, Typeface.BOLD);
                             DoA.setBackgroundResource(R.drawable.table_heading_shape);
                             DoA.setTextColor(Color.WHITE);
                             DoA.setTextSize(20);
                             DoA.setPadding(8,2,8,2);
 
-                            caseTypeHeading.setText("Case Type");
+                            caseTypeHeading.setText(" Case Type ");
                             caseTypeHeading.setTypeface(null, Typeface.BOLD);
                             caseTypeHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             caseTypeHeading.setTextColor(Color.WHITE);
                             caseTypeHeading.setTextSize(20);
                             caseTypeHeading.setPadding(8,2,8,2);
 
-                            caseIdHeading.setText("Case Id");
+                            caseIdHeading.setText(" Case Id ");
                             caseIdHeading.setTextColor(Color.WHITE);
                             caseIdHeading.setTypeface(null, Typeface.BOLD);
                             caseIdHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             caseIdHeading.setTextSize(20);
                             caseIdHeading.setPadding(8,2,8,2);
 
-                            advocateNameHeading.setText("Advocate Name");
+                            advocateNameHeading.setText(" Advocate Name ");
                             advocateNameHeading.setTypeface(null, Typeface.BOLD);
                             advocateNameHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             advocateNameHeading.setTextSize(20);
                             advocateNameHeading.setPadding(8,2,8,2);
                             advocateNameHeading.setTextColor(Color.WHITE);
 
-                            caseTitleHeading.setText("Case Title");
+                            caseTitleHeading.setText(" Case Title ");
                             caseTitleHeading.setTypeface(null, Typeface.BOLD);
                             caseTitleHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             caseTitleHeading.setTextSize(20);
                             caseTitleHeading.setPadding(8,2,8,2);
                             caseTitleHeading.setTextColor(Color.WHITE);
 
-                            NdhHeading.setText("NDH");
+                            NdhHeading.setText(" NDH ");
                             NdhHeading.setTypeface(null, Typeface.BOLD);
                             NdhHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             NdhHeading.setTextSize(20);
                             NdhHeading.setPadding(8,2,8,2);
                             NdhHeading.setTextColor(Color.WHITE);
 
-                            PurposeHeading.setText("Purpose");
+                            PurposeHeading.setText(" Purpose ");
                             PurposeHeading.setTypeface(null, Typeface.BOLD);
                             PurposeHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             PurposeHeading.setTextSize(20);
                             PurposeHeading.setPadding(8,2,8,2);
                             PurposeHeading.setTextColor(Color.WHITE);
 
-                            lastUpdatedHeading.setText("Last Updated");
+                            lastUpdatedHeading.setText(" Last Updated ");
                             lastUpdatedHeading.setTypeface(null, Typeface.BOLD);
                             lastUpdatedHeading.setBackgroundResource(R.drawable.table_heading_shape);
                             lastUpdatedHeading.setTextSize(20);
@@ -413,15 +413,15 @@ public class View_Hearing extends AppCompatActivity {
                             {
 
                                 DB_CaseHearing db_caseHearing = documentSnapshot.toObject(DB_CaseHearing.class);
-                                String no = Integer.toString(serial_no);
-                                String blankString = db_caseHearing.getDoa();
-                                String case_type = db_caseHearing.getCase_type();
-                                String case_id = db_caseHearing.getCase_id();
-                                String advocate_name = db_caseHearing.getAdvocate_name();
-                                String  case_title = db_caseHearing.getCase_title();
-                                String ndh = db_caseHearing.getNdh();
-                                String purpose = db_caseHearing.getPurpose();
-                                String last_updated = db_caseHearing.getLast_updated();
+                                String no = " " + Integer.toString(serial_no) + " ";
+                                String blankString = " " + db_caseHearing.getDoa() + " ";
+                                String case_type = " " + db_caseHearing.getCase_type() + " ";
+                                String case_id = " " + db_caseHearing.getCase_id() + " ";
+                                String advocate_name = " " + db_caseHearing.getAdvocate_name() + " ";
+                                String  case_title = " " + db_caseHearing.getCase_title() + " ";
+                                String ndh = " " + db_caseHearing.getNdh() + " ";
+                                String purpose = " " + db_caseHearing.getPurpose() + " ";
+                                String last_updated = " " + db_caseHearing.getLast_updated() + " ";
 
                                 TextView serial = new TextView(getApplicationContext());
                                 TextView doA = new TextView(getApplicationContext());
@@ -603,63 +603,63 @@ public class View_Hearing extends AppCompatActivity {
                 TextView PurposeHeading = new TextView(getApplicationContext());
                 TextView lastUpdatedHeading = new TextView(getApplicationContext());
 
-                serialHeading.setText("S.No");
+                serialHeading.setText(" S.No ");
                 serialHeading.setTypeface(null, Typeface.BOLD);
                 serialHeading.setBackgroundResource(R.drawable.table_heading_shape);
                 serialHeading.setTextColor(Color.WHITE);
                 serialHeading.setTextSize(20);
                 serialHeading.setPadding(8,2,8,2);
 
-                DoA.setText("Date of Assignment");
+                DoA.setText(" Date of Assignment ");
                 DoA.setTypeface(null, Typeface.BOLD);
                 DoA.setBackgroundResource(R.drawable.table_heading_shape);
                 DoA.setTextColor(Color.WHITE);
                 DoA.setTextSize(20);
                 DoA.setPadding(8,2,8,2);
 
-                caseTypeHeading.setText("Case Type");
+                caseTypeHeading.setText(" Case Type ");
                 caseTypeHeading.setTypeface(null, Typeface.BOLD);
                 caseTypeHeading.setBackgroundResource(R.drawable.table_heading_shape);
                 caseTypeHeading.setTextColor(Color.WHITE);
                 caseTypeHeading.setTextSize(20);
                 caseTypeHeading.setPadding(8,2,8,2);
 
-                caseIdHeading.setText("Case Id");
+                caseIdHeading.setText(" Case Id ");
                 caseIdHeading.setTextColor(Color.WHITE);
                 caseIdHeading.setTypeface(null, Typeface.BOLD);
                 caseIdHeading.setBackgroundResource(R.drawable.table_heading_shape);
                 caseIdHeading.setTextSize(20);
                 caseIdHeading.setPadding(8,2,8,2);
 
-                advocateNameHeading.setText("Advocate Name");
+                advocateNameHeading.setText(" Advocate Name ");
                 advocateNameHeading.setTypeface(null, Typeface.BOLD);
                 advocateNameHeading.setBackgroundResource(R.drawable.table_heading_shape);
                 advocateNameHeading.setTextSize(20);
                 advocateNameHeading.setPadding(8,2,8,2);
                 advocateNameHeading.setTextColor(Color.WHITE);
 
-                caseTitleHeading.setText("Case Title");
+                caseTitleHeading.setText(" Case Title ");
                 caseTitleHeading.setTypeface(null, Typeface.BOLD);
                 caseTitleHeading.setBackgroundResource(R.drawable.table_heading_shape);
                 caseTitleHeading.setTextSize(20);
                 caseTitleHeading.setPadding(8,2,8,2);
                 caseTitleHeading.setTextColor(Color.WHITE);
 
-                NdhHeading.setText("NDH");
+                NdhHeading.setText(" NDH ");
                 NdhHeading.setTypeface(null, Typeface.BOLD);
                 NdhHeading.setBackgroundResource(R.drawable.table_heading_shape);
                 NdhHeading.setTextSize(20);
                 NdhHeading.setPadding(8,2,8,2);
                 NdhHeading.setTextColor(Color.WHITE);
 
-                PurposeHeading.setText("Purpose");
+                PurposeHeading.setText(" Purpose ");
                 PurposeHeading.setTypeface(null, Typeface.BOLD);
                 PurposeHeading.setBackgroundResource(R.drawable.table_heading_shape);
                 PurposeHeading.setTextSize(20);
                 PurposeHeading.setPadding(8,2,8,2);
                 PurposeHeading.setTextColor(Color.WHITE);
 
-                lastUpdatedHeading.setText("Last Updated");
+                lastUpdatedHeading.setText(" Last Updated ");
                 lastUpdatedHeading.setTypeface(null, Typeface.BOLD);
                 lastUpdatedHeading.setBackgroundResource(R.drawable.table_heading_shape);
                 lastUpdatedHeading.setTextSize(20);
@@ -693,15 +693,15 @@ public class View_Hearing extends AppCompatActivity {
                 {
 
                     DB_CaseHearing db_caseHearing = documentSnapshot.toObject(DB_CaseHearing.class);
-                    String no = Integer.toString(serial_no);
-                    String blankString = db_caseHearing.getDoa();
-                    String case_type = db_caseHearing.getCase_type();
-                    String case_id = db_caseHearing.getCase_id();
-                    String advocate_name = db_caseHearing.getAdvocate_name();
-                    String  case_title = db_caseHearing.getCase_title();
-                    String ndh = db_caseHearing.getNdh();
-                    String purpose = db_caseHearing.getPurpose();
-                    String last_updated = db_caseHearing.getLast_updated();
+                    String no = " " + Integer.toString(serial_no) + " ";
+                    String blankString = " " + db_caseHearing.getDoa() + " ";
+                    String case_type = " " + db_caseHearing.getCase_type() + " ";
+                    String case_id = " " + db_caseHearing.getCase_id() + " ";
+                    String advocate_name = " " + db_caseHearing.getAdvocate_name() + " ";
+                    String  case_title = " " + db_caseHearing.getCase_title() + " ";
+                    String ndh = " " + db_caseHearing.getNdh() + " ";
+                    String purpose = " " + db_caseHearing.getPurpose() + " ";
+                    String last_updated = " " + db_caseHearing.getLast_updated() + " ";
 
                     TextView serial = new TextView(getApplicationContext());
                     TextView doA = new TextView(getApplicationContext());

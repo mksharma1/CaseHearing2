@@ -71,21 +71,21 @@ public class RemoveAdvocate extends AppCompatActivity implements View.OnClickLis
                 TextView nameHeading = new TextView(getApplicationContext());
                 TextView periodHeading = new TextView(getApplicationContext());
 
-                serialHeading.setText("S.No");
+                serialHeading.setText(" S.No ");
                 serialHeading.setTypeface(null, Typeface.BOLD);
                 serialHeading.setBackgroundResource(R.drawable.table_heading_shape);
                 serialHeading.setTextColor(Color.WHITE);
                 serialHeading.setTextSize(20);
                 serialHeading.setPadding(8,2,8,2);
 
-                nameHeading.setText("Advocate Name");
+                nameHeading.setText(" Advocate Name ");
                 nameHeading.setTypeface(null, Typeface.BOLD);
                 nameHeading.setBackgroundResource(R.drawable.table_heading_shape);
                 nameHeading.setTextColor(Color.WHITE);
                 nameHeading.setTextSize(20);
                 nameHeading.setPadding(8,2,8,2);
 
-                periodHeading.setText("Period Of Employment");
+                periodHeading.setText(" Period Of Employment ");
                 periodHeading.setTypeface(null, Typeface.BOLD);
                 periodHeading.setBackgroundResource(R.drawable.table_heading_shape);
                 periodHeading.setTextColor(Color.WHITE);
@@ -112,11 +112,11 @@ public class RemoveAdvocate extends AppCompatActivity implements View.OnClickLis
                 for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
                     DB_Advocates db_advocates = documentSnapshot.toObject(DB_Advocates.class);
 
-                    String no = Integer.toString(serial_no);
-                    String name = db_advocates.getAdvocate();
+                    String no =" " + Integer.toString(serial_no) +" ";
+                    String name = " " + db_advocates.getAdvocate() +" ";
                     String startDate = db_advocates.getStartDate();
                     String endDate = db_advocates.getEndDate();
-                    String period = startDate + " to " +endDate;
+                    String period =" " + startDate + " to " +endDate + " ";
 
                     TextView serialNo = new TextView(getApplicationContext());
                     TextView advocateName = new TextView(getApplicationContext());
@@ -222,21 +222,21 @@ public class RemoveAdvocate extends AppCompatActivity implements View.OnClickLis
                 TextView nameHeading = new TextView(getApplicationContext());
                 TextView periodHeading = new TextView(getApplicationContext());
 
-                serialHeading.setText("S.No");
+                serialHeading.setText(" S.No ");
                 serialHeading.setTypeface(null, Typeface.BOLD);
                 serialHeading.setBackgroundResource(R.drawable.table_heading_shape);
                 serialHeading.setTextColor(Color.WHITE);
                 serialHeading.setTextSize(20);
                 serialHeading.setPadding(8,2,8,2);
 
-                nameHeading.setText("Advocate Name");
+                nameHeading.setText(" Advocate Name ");
                 nameHeading.setTypeface(null, Typeface.BOLD);
                 nameHeading.setBackgroundResource(R.drawable.table_heading_shape);
                 nameHeading.setTextColor(Color.WHITE);
                 nameHeading.setTextSize(20);
                 nameHeading.setPadding(8,2,8,2);
 
-                periodHeading.setText("Period Of Employment");
+                periodHeading.setText(" Period Of Employment ");
                 periodHeading.setTypeface(null, Typeface.BOLD);
                 periodHeading.setBackgroundResource(R.drawable.table_heading_shape);
                 periodHeading.setTextColor(Color.WHITE);
@@ -260,11 +260,11 @@ public class RemoveAdvocate extends AppCompatActivity implements View.OnClickLis
                 for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
                     DB_Advocates db_advocates = documentSnapshot.toObject(DB_Advocates.class);
 
-                    String no = Integer.toString(serial_no);
-                    String name = db_advocates.getAdvocate();
+                    String no = " " +Integer.toString(serial_no) +" ";
+                    String name =" " + db_advocates.getAdvocate() +" ";
                     String startDate = db_advocates.getStartDate();
                     String endDate = db_advocates.getEndDate();
-                    String period = startDate + " to " +endDate;
+                    String period =" " + startDate + " to " +endDate +" ";
 
                     TextView serialNo = new TextView(getApplicationContext());
                     TextView advocateName = new TextView(getApplicationContext());
