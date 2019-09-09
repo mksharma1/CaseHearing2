@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:647353742559:android:2a626afc5974216a",
         "android_client_info": {
-          "package_name": "com.example.casehearing"
+          "package_name": "com.uiet.casehearing"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "647353742559-lggrfkausafm45kdlf4g6obmq0nfbrs6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.casehearing",
+            "package_name": "com.uiet.casehearing",
             "certificate_hash": "bda353ab4c3ae5ff5a21d6ffe1c4c3ccc37c6791"
           }
         },
