@@ -237,6 +237,11 @@ public void addHearing() {
                 case_id.requestFocus();
                 return;
             }
+            if(doa.isEmpty()){
+                doA.setError("D.O.A is required");
+                doA.requestFocus();
+                return;
+            }
             if (advocates.isEmpty()) {
                 advocate_name.setError("Advocate Name is required");
                 advocate_name.requestFocus();
