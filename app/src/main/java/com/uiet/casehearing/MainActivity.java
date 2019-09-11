@@ -124,6 +124,10 @@ public class MainActivity extends AppCompatActivity
         builder = new AlertDialog.Builder(this);
 
         if(mAuth.getCurrentUser()==null){
+
+            Menu menu = navigationView.getMenu();
+            menu.findItem(R.id.nav_logout).setTitle("Login ");
+
             add_hearing.setVisibility(View.GONE);
             view_hearing.setVisibility(View.GONE);
             add_advocate.setVisibility(View.GONE);
@@ -132,6 +136,10 @@ public class MainActivity extends AppCompatActivity
         }
 
         if(mAuth.getCurrentUser()!=null) {
+
+            Menu menu = navigationView.getMenu();
+            menu.findItem(R.id.nav_logout).setTitle("Logout");
+
             String userEmail = mAuth.getCurrentUser().getEmail();
 
             if (userEmail.equalsIgnoreCase(admin1) || userEmail.equalsIgnoreCase(admin2)) {
@@ -319,8 +327,8 @@ public class MainActivity extends AppCompatActivity
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
             } else {
-                Toast.makeText(getApplicationContext(),"You are already logged off...",Toast.LENGTH_LONG).show();
-                return true;
+                Intent intent = new Intent(getApplicationContext(),Login.class);
+                startActivity(intent);
             }
 
         } else if (id == R.id.nav_developer){
